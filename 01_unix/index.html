@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Web Programming @ MIPT - 01</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="../common/shower/themes/ribbon/styles/screen.css">
+
+	<style>
+		table.bars {width: auto; margin-top: calc(50% - 97px - 105px); border:solid 1px black; border-bottom:0px; background-color:#FFF; margin-left:auto; margin-right:auto; margin-bottom:0px; }
+		table.bars tr.overall {border-bottom:solid 1px black}
+		table.bars th {line-height: 1; background: none; border:0px; text-align:right; vertical-align:middle; padding-bottom:0px; padding-left:10px; padding-right:10px; padding-top:0px;}
+		table.bars th.lbar {text-align:left; border-left:solid 1px gray;}
+		table.bars th a {text-decoration:none; vertical-align:middle; background: none;}
+		table.bars th a:hover {text-decoration: underline}
+		table.bars td {background: none; border:0px; border-left:solid 1px gray; text-align:left; padding:0px; padding-right:10px; }
+		table.bars td.barleg {border:solid 1px black; text-align:center; padding:10px;}
+		table.bars td.lbar {text-align:right; padding:0px; border-left:0px;}
+		table.bars th.cap1 {font-weight:normal; text-align:left; font-size:60%; border-bottom:solid 1px black; padding:0px; padding-left:2px; padding-right:2px; padding-top:2px; margin:0; }
+		table.bars td.cap1 {text-align:right; font-size:60%; border-bottom:solid 1px black; padding:0px; padding-top:2px; padding-right:2px; margin:0; }
+		table.bars td.cap2 {line-height: 1; text-align:center; font-size:90%; border:solid 1px black; border-top:0px; padding:0.2em; padding-left:1em; padding-right:1em; margin:0;}
+		table.bars div.barleg {height:11px; width:11px; margin-right:6px; margin-left:12px; display:inline-block;}
+		table.bars div.bar {height:0.8em; margin-right:0.3em;}
+		table.bars div.bar0 {margin-top:8px;margin-bottom:8px;}
+		table.bars div.bar1 {margin-top:1px;margin-bottom:1px;}
+		table.bars div.bar2 {margin-top:1px;margin-bottom:1px;}
+		table.bars div.lbar {height:0.8em; margin-left:0px;}
+		table.bars div.filler {height:2px; margin-top:2px;margin-bottom:2px;}
+		table.bars div.filler2 {height:2px; margin:0px;}
+		table.bars div.b0 {background-color:#808080;}
+		table.bars div.b1 {background-color:green;}
+		table.bars div.b2 {background-color:red;}
+		table.bars div.b3 {background-color:blue;}
+		table.bars div.b4 {background-color:orange;}
+		table.bars div.b5 {background-color:aqua;}
+		table.bars div.b6 {background-color:yellow;}
+		table.bars div.b7 {background-color:lime;}
+		table.bars div.b8 {background-color:fuchsia;}
+		table.bars div.b9 {background-color:olive;}
+		table.bars div.b10{background-color:teal;}
+		table.bars div.b11{background-color:purple;}
+		table.bars div.b12{background-color:navy;}
+
+		table.bar {border:0px; margin:0px; width: auto;}
+		table.bar td {border:0px; text-align:left; vertical-align:middle; padding:0px; margin:0px;}
+		table.lbar {border:0px; margin:0px; margin-left:auto;}
+		table.lbar td {border:0px; text-align:right; vertical-align:middle; padding:0px; padding-left:5px; margin:0px;}
+	</style>
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Web Programming @ MIPT, 2015-2016</h1>
+		<p>Markovtsev Vadim</p>
+	</header>
+	<section class="slide cover" id="Cover"><div>
+		<img src="pictures/cover.jpg" alt="">
+		<h2>UNIX crash course</h2>
+		<p>Web Programming @ MIPT, 2015-2016</a></p>
+		<!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+		<style>
+			#Cover h2 {
+				margin:30px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:70px;
+				}
+			#Cover p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+			}
+			#Cover p a {
+				color:#FFF;
+			}
+			#Cover > div {
+				background-color: rgba(0, 0, 0, 0.4);
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Server OS share</h2>
+		<table class="bars"><tbody><tr><th><a href="http://w3techs.com/technologies/details/os-unix/all/all">Unix</a>
+		</th><td><table class="bar"><tbody><tr><td><div class="bar bar0 b0" style="width: 402px"></div></td>
+			<td>67.1%</td></tr></tbody></table></td></tr><tr><th>
+				<a href="http://w3techs.com/technologies/details/os-windows/all/all">Windows</a></th>
+				<td style="padding-top: 3px;"><table class="bar"><tbody><tr><td>
+					<div class="bar bar0 b0" style="width: 197px"></div></td><td>32.9%</td></tr></tbody></table>
+				</td></tr><tr><th class="cap1"></th><td class="cap1"><a href="http://w3techs.com/technologies/overview/operating_system/all">W3Techs.com</a>, 22 September 2015</td></tr><tr><td class="cap2" colspan="2">Percentages of websites using various operating systems<br>Note: a website may use more than one operating system</td></tr></tbody></table>
+
+	</div></section>
+	<section class="slide"><div>
+		<h2>Software licenses</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License">GNU GPL</a> - viral, "copyleft"</li>
+			<li><a href="https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License">GNU LGPL</a> - less viral, "copyleft"</li>
+			<li><a href="https://en.wikipedia.org/wiki/MIT_License">MIT</a> - simple, permissive, "do what you want"</li>
+			<li><a href="https://en.wikipedia.org/wiki/BSD_licenses">BSD</a> - simple, permissive, "do what you want"</li>
+			<li><a href="https://en.wikipedia.org/wiki/Apache_License">Apache 2.0</a> - permissive, "do what you want", patent safe</li>
+			<li><a href="https://en.wikipedia.org/wiki/Public_domain">Public Domain</a> - the most permissive,
+				"do everything you want" (synonym: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC Zero</a>)</li>
+			<li>Exotic licenses for small projects: <a href="https://en.wikipedia.org/wiki/Beerware">Beerware</a>,
+			<a href="https://en.wikipedia.org/wiki/WTFPL">WTFPL</a>, etc.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>UNIX history</h2>
+		<a href="https://en.wikipedia.org/wiki/Unix" style="color: rgba(0,0,0,0);">
+			<img src="pictures/history.svg"
+			  style="width: 100%; height: calc(100% - 50px); object-fit: contain;"></a>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Modern UNIX</h2>
+		<ul>
+			<li>MacOS X (Darwin &lt;- FreeBSD)</li>
+			<li><a href="http://www.ubuntu.com/desktop">Ubuntu</a> (Linux)</li>
+			<li><a href="https://getfedora.org/">Fedora</a> (Linux)</li>
+		</ul>
+		<p>Use <a href="https://www.virtualbox.org/">VirtualBox</a> to try, or install on host (dangerous, but cool).</p>
+	</div></section>
+	<section class="slide"><div>
+		<h2>OS structure</h2>
+		<ol>
+			<li>Kernel</li>
+			<li>Middleware (system libraries)
+				<ul>
+					<li>libc</li>
+					<li>Drivers @ userland</li>
+				</ul>
+			</li>
+			<li>Applications
+				<ul>
+					<li>Libraries</li>
+					<li>Shell</li>
+					<li>Core utilities</li>
+					<li>Window system (X11, Quartz, etc.)</li>
+					<li>Web browser</li>
+				</ul>
+			</li>
+		</ol>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Installing software</h2>
+		<a href="https://en.wikipedia.org/wiki/Package_manager">Package Managers:</a>
+		<ul>
+			<li><a href="http://brew.sh/">Homebrew</a> on MacOSX</li>
+			<li><a href="https://chocolatey.org/">Chocolatey</a> on Windows</li>
+			<li><a href="https://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt-get</a> on Ubuntu, <a href="https://en.wikipedia.org/wiki/DNF_(software)">DNF</a> on Fedora, etc.</li>
+		</ul>
+		<h3>Example:</h3>
+		<pre>
+			<code>apt-get install chromium-browser</code>
+			<code>brew install git</code>
+		</pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Terminal</h2>
+		<img src="pictures/terminal.png" style="width: 100%; height: 100%; object-fit: contain;"></img>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Shell</h2>
+		<ul>
+			<li>One uses a <a href="https://en.wikipedia.org/wiki/Terminal_emulator">terminal emulator</a> to access the shell</li>
+			<li>Grandparent of all UNIX shells: <a href="https://en.wikipedia.org/wiki/Almquist_shell">Almquist shell (ash)</a></li>
+			<li>Modern ash: <a href="https://en.wikipedia.org/wiki/Almquist_shell">dash</a></li>
+			<li>Most popular and widespread shell: <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">bash</a> (Ubuntu, MacOS X)</li>
+      <li>Hipster shells: <a href="https://en.wikipedia.org/wiki/Z_shell">zsh</a>, <a href="https://en.wikipedia.org/wiki/Friendly_interactive_shell">fish</a></li>
+		</ul>
+		<p>All scripts must carry a <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang</a>, e.g.</p>
+		<pre>
+			<code>#!/bin/sh -e</code>
+		</pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Core utilities</h2>
+		<ul style="margin: 0;">
+			<li><a href="https://en.wikipedia.org/wiki/GNU_Core_Utilities">GNU Core Utilities</a> on Linux</li>
+			<li><a href="https://www.over-yonder.net/~fullermd/rants/bsd4linux/03">BSD Base System</a> on BSD/Darwin</li>
+      <li><a href="https://en.wikipedia.org/wiki/BusyBox">BusyBox</a> on embedded systems (e.g., Android)</li>
+		</ul>
+		<p style="margin: 0;">Example:</p>
+		<pre>
+			<code>ls -la</code>
+			<code>total 32</code>
+			<code>drwxr-xr-x  5 markhor  staff   170 22 Sep 21:01 .</code>
+			<code>drwxr-xr-x  9 markhor  staff   306 22 Sep 20:59 ..</code>
+			<code>-rw-r--r--@ 1 markhor  staff  7948 22 Sep 23:23 index.html</code>
+			<code>drwxr-xr-x  6 markhor  staff   204 22 Sep 23:11 pictures</code>
+		</pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Learn command-line environment</h2>
+		<ul>
+			<li>Shell language: <a href="http://www.tldp.org/LDP/abs/html/">Advanced Bash Scripting Guide</a></li>
+			<li>Coreutils examples: <a href="http://cli.learncodethehardway.org/book/">cli.learncodethehardway.org</a></li>
+      <li>Interactive tutorial: <a href="https://www.codecademy.com/en/courses/learn-the-command-line">codecademy.com</a></li>
+			<li>The most useful command: man</li>
+			<br>
+			<pre>
+				<code>man man</code>
+				<code>man ls</code>
+				<code>man find</code>
+			</pre>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Console text editors</h2>
+		<ul>
+			<li><a href="http://www.nano-editor.org/">GNU Nano</a> - the most easy
+				to use and widespread (installed by default in Ubuntu, MacOS X)</li>
+			<li><a href="http://www.vim.org/">vim</a> - widespread (installed by default almost anywhere)</li>
+			<li>Recommending a text editor is a <a href="https://en.wikipedia.org/wiki/Editor_war">holy war</a></li>
+			<li>Use something like <a href="https://atom.io/">Atom</a> for casual code writing! Or an IDE.</li>
+		</ul>
+	</div></section>
+	<p class="badge"><a href="https://github.com/vmarkovtsev/mipt_web_2015">View on Github</a></p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="../common/shower/shower.min.js"></script>
+</body>
+</html>
