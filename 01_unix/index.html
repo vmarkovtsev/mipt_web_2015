@@ -206,6 +206,42 @@
 		</pre>
 	</div></section>
 	<section class="slide"><div>
+		<h2>Standard streams</h2>
+		<ul>
+			<li>stdout is for ordinary output (e.g., logs)</li>
+			<li>stderr is for errors output</li>
+      <li>stdin is for reading input</li>
+			<li><a href="https://en.wikipedia.org/wiki/Standard_streams">More information on standard streams</a></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>UNIX signals</h2>
+		<ul>
+			<li>Terminating a process softly means sending <a href="https://ru.wikipedia.org/wiki/SIGTERM">SIGTERM</a> signal (15)</li>
+			<li>Hard termination is done via <a href="https://ru.wikipedia.org/wiki/SIGKILL">SIGKILL</a> (9)</li>
+      <li>Ctrl-C sends <a href="https://ru.wikipedia.org/wiki/SIGINT">SIGINT</a> (2)</li>
+			<li><a href="http://bash.cyberciti.biz/guide/Sending_signal_to_Processes">More information on signals</a></li>
+			<p>Examples:</p>
+			<pre>
+				<code>kill -SIGTERM &lt;pid&gt;</code>
+				<code>killall -15 &lt;name&gt;</code>
+			</pre>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>UNIX pipes</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/Pipeline_(Unix)">Pipe</a> means redirecting process' stdout to other process' stdin</li>
+			<li>Shells use "|" to designate pipes</li>
+			<li>SIGPIPE is sent to prematurely terminate the chain</li>
+			<p>Examples:</p>
+			<pre>
+				<code>cat /path/to/file_list | sort | uniq | xargs file</code>
+				<code>grep key /file | write &lt;user&gt;</code>
+			</pre>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
 		<h2>Learn command-line environment</h2>
 		<ul>
 			<li>Shell language: <a href="http://www.tldp.org/LDP/abs/html/">Advanced Bash Scripting Guide</a></li>
