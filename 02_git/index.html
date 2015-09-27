@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Web Programming @ MIPT - 02</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="../common/shower/themes/ribbon/styles/screen.css">
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Web Programming @ MIPT, 2015-2016</h1>
+		<p>Markovtsev Vadim</p>
+	</header>
+	<section class="slide cover" id="Cover"><div>
+		<img src="pictures/cover.jpg" alt="">
+		<h2>Git crash course</h2>
+		<p>Web Programming @ MIPT, 2015-2016</a></p>
+		<img src="pictures/qrcode.png" id="qr">
+		<!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+		<style>
+			#Cover h2 {
+				margin:30px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:70px;
+				}
+			#Cover p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+			}
+			#Cover p a {
+				color:#FFF;
+			}
+			#Cover > div {
+				background-color: rgba(0, 0, 0, 0.2);
+			}
+			#qr {
+			    width: 128px;
+			    height: 128px;
+			    position: static;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                margin-top: -250px;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>What is VCS?</h2>
+		<ul>
+			<li>VCS stands for Version Control System</li>
+			<li><a href="https://en.wikipedia.org/wiki/Configuration_management">Configuration Management</a> ⊃
+			<a href="https://en.wikipedia.org/wiki/Software_configuration_management">Software Configuration Management</a> ⊃
+		  <a href="https://en.wikipedia.org/wiki/Version_control">Version Control</a></li>
+			<li>VCS is used for:
+				<ul>
+					<li>software development</li>
+					<li>book writing (e.g., <a href="https://open-math-book.github.io/">Open Math Book</a>)</li>
+					<li>design creation (less typical)</li>
+				</ul>
+			</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>VCS terminology</h2>
+		<div id="vcs-container">
+			<img src="pictures/vcs.png" id="vcs-img">
+			<ul>
+				<li>Commits</li>
+				<li>Branches</li>
+				<li>Merges</li>
+				<li>Tags</li>
+				<li>History (log)</li>
+				<li>Centralized operation
+					<ul>
+						<li>Locking</li>
+					</ul>
+				</li>
+				<li>Distributed operation
+					<ul>
+						<li>Pool and push</li>
+						<li>Remotes</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<style>
+		  #vcs-container {
+				display: flex;
+			}
+      #vcs-img {
+				height: 480px;
+				margin-right: 50px;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (1)</h2>
+		<img src="pictures/fail_zip.png" id="fail_zip">
+		<style>
+		  #fail_zip {
+		    width: 800px;
+		  }
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (1)</h2>
+		<p>What are the drawbacks?</p>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (1)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>No way I will collaborate with others. Grab my archive and don't complain.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (1)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>No way I will collaborate with others. Grab my archive and don't complain.</li>
+			<li>Diffs? What diffs?</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (1)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>No way I will collaborate with others. Grab my archive and don't complain.</li>
+			<li>Diffs? What diffs?</li>
+			<li>Merging branches? They are for losers!</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (1)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>No way I will collaborate with others. Grab my archive and don't complain.</li>
+			<li>Diffs? What diffs?</li>
+			<li>Merging branches? They are for losers!</li>
+			<li>Making releases is simple. Just edit config files A and B, remove C,
+				D and F directory, revise G to exclude my local modifications. Oh, and
+				fix H to print the current version, of course.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (1)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>No way I will collaborate with others. Grab my archive and don't complain.</li>
+			<li>Diffs? What diffs?</li>
+			<li>Merging branches? They are for losers!</li>
+			<li>Making releases is simple. Just edit config files A and B, remove C,
+				D and F directory, revise G to exclude my local modifications. Oh, and
+				fix H to print the current version, of course.</li>
+			<li>My site has no bugs so there is nothing to search for in history.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (2)</h2>
+		<img src="pictures/fail_dropbox.png" id="fail_dropbox">
+		<style>
+      #fail_dropbox {
+				height: 450px;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (2)</h2>
+		<p>What are the drawbacks?</p>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (2)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>I changed this file the last, so your changes disappeared.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (2)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>I changed this file the last, so your changes disappeared.</li>
+			<li>Diffs? That stupid question again!</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (2)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>I changed this file the last, so your changes disappeared.</li>
+			<li>Diffs? That stupid question again!</li>
+			<li>Branching is impossible. Forget about merging.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (2)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>I changed this file the last, so your changes disappeared.</li>
+			<li>Diffs? That stupid question again!</li>
+			<li>Branching is impossible. Forget about merging.</li>
+			<li>Versioning is impossible.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Typical smell of bad development (2)</h2>
+		<p>What are the drawbacks?</p>
+		<ul>
+			<li>I changed this file the last, so your changes disappeared.</li>
+			<li>Diffs? That stupid question again!</li>
+			<li>Branching is impossible. Forget about merging.</li>
+			<li>Versioning is impossible.</li>
+			<li>Hard to use on windowless servers.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Always use VCS...</h2>
+		<img src="pictures/you.jpg" id="you">
+		<ul>
+			<li>even if the project is small</li>
+			<li>even if you work alone</li>
+			<li>even if you are tired</li>
+			<li>even if aliens threaten your family</li>
+		</ul>
+		<style>
+			#you {
+				float: left;
+				margin-right: 50px;
+				height: 480px;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Existing VCS</h2>
+		<ul>
+			<li>Git - most popular</li>
+			<li><a href="https://en.wikipedia.org/wiki/Concurrent_Versions_System">CVS</a>,
+				<a href="https://en.wikipedia.org/wiki/Apache_Subversion">SVN</a> - <a href="http://www.youtube.com/watch?v=4XpnKHJAok8">watch why they
+				<span style="text-decoration: line-through;">suck</span> are bad</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/GNU_Bazaar">Bazaar</a>,
+				<a href="https://en.wikipedia.org/wiki/Mercurial">Mercurial</a> - powerful, but unpopular</li>
+			<li><a href="https://en.wikipedia.org/wiki/Perforce">Perforce</a> - in many cases, corporate standard (unfortunately)</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git history</h2>
+		<ul>
+			<li>Appeared in 2005 to solve Linux Kernel troubles</li>
+			<li>Original author was Linus Torvalds</li>
+			<li>Attracted popularity thanks to the launch of <a href="https://github.com">GitHub</a> in 2008</li>
+			<li>21.1 million repositories in 2015</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Main features of Git</h2>
+		<ul>
+			<li>Distributed</li>
+			<li>Fast (originally written in C) - scales to huge projects</li>
+			<li>Powerful and cheap branching</li>
+			<li>Durability and robustness</li>
+			<li>Simplicity of internal design (but not for the end user, unfortunately)</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>The Book</h2>
+		<ul>
+			<img src="pictures/progit.png" id="progit">
+			<li><a href="https://git-scm.com/book/en/v2">Pro Git (en)</a>,
+				<a href="https://git-scm.com/book/ru/v2">Pro Git (ru)</a></li>
+			<li>Two major versions, the latest is the second (Google still suggests the first!)</li>
+			<li><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> license (open and free)</li>
+			<li>The source is maintained on <a href="https://github.com/progit/progit2">GitHub</a></li>
+			<style>
+			  #progit {
+					height: 300px;
+					float: left;
+					margin-right: 50px;
+				}
+			</style>
+		</ul>
+	</div></section>
+	<p class="badge"><a href="https://github.com/vmarkovtsev/mipt_web_2015">View on Github</a></p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="../common/shower/shower.min.js"></script>
+</body>
+</html>
