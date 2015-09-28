@@ -288,6 +288,15 @@
 		</ul>
 	</div></section>
 	<section class="slide"><div>
+		<h2>Getting Git</h2>
+		<ul>
+			<li>Ubuntu: <code>sudo apt-get install git</code></li>
+			<li>MacOSX: <code>brew install git</code></li>
+			<li>Windows: use <a href="https://git-for-windows.github.io/">GitHub for Windows</a></li>
+			<li><span style="color: red;">DO NOT USE GUI</span></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
 		<h2>Git basics: getting a repository</h2>
 		<ul>
 			<li><code>git init</code> to initialize an empty repo</li>
@@ -297,6 +306,109 @@
 				<code>git init .</code>
 				<code>git clone git@github.com:vmarkovtsev/mipt_web_2015.git mipt</code>
 			</pre>
+			<p>Internal files are stored inside <code>.git</code> directory in the repo's root</p>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: 4 areas</h2>
+		<img src="pictures/git4areas.png" id="git4areas">
+		<style>
+			#git4areas {
+				margin-top: 50px;
+				width: 780px;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: status and history</h2>
+		<ul>
+			<li><code>git status</code> - show what's going on</li>
+			<li><code>git log</code> - show what happened before on the current branch</li>
+			<li><code>git reflog</code> - show the last N repository states</li>
+			<li>Perhaps, these are the only commands where GUI can do better</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: add</h2>
+		<ul>
+			<li><code>git add [-p]</code> - adds untracked and modified files to staging area</li>
+			<li><code>git add</code> - mark conflict as resolved</li>
+			<li><code>git diff</code> - show the difference between HEAD and modified (but not staged!)</li>
+			<li><code>git diff --staged</code> - show the difference between HEAD and staged</li>
+			<li><code>git reset [-p]</code> - remove the file from staging to modified or untracked</li>
+			<li><code>git checkout -f</code> - restore deleted file, revert changes</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: rm and mv</h2>
+		<ul>
+			<li><code>git rm</code> - removes the file from Git and from the file system</li>
+			<li><code>git rm --cached</code> - removes the file from Git but leaves it in the file system</li>
+			<li><code>git mv</code> - move file</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: commit</h2>
+		<ul>
+			<li><code>git commit [-m]</code> - make the commit from staged</li>
+			<li><code>git commit --amend</code> - meld staged into the previous commit (HEAD)</li>
+			<li><code>git rebase -i HEAD^^^</code> - change last 3 commits sequentially</li>
+			<li>This is usually when you are asked for user name and email for the first time</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: remotes</h2>
+		<ul>
+			<li><code>git remote -v</code> - view external repositories</li>
+			<li><code>git remote add</code> - add external repository</li>
+			<li><code>git remote rm</code> - remove external repository</li>
+			<li><code>git fetch</code> - synchronize remote branches with local mirrors</li>
+			<li>Default remote is "origin"</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: pull and push</h2>
+		<ul>
+			<li><code>git pull --rebase</code> - take off local commits, apply remote's and finally return local</li>
+			<li><code>git pull</code> - merge local branch with remote counterpart</li>
+			<li><code>git push &lt;remote name&gt; &lt;branch name&gt;</branch></code> - update remote branch</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: branches</h2>
+		<ul>
+			<li>Default is "master"</li>
+			<li><code>git branch</code> - set new branch to point to HEAD, but do not switch to it</li>
+			<li><code>git checkout -b</code> - set new branch to point to HEAD, and switch to it</li>
+			<li><code>git checkout</code> - switch to existing branch</li>
+			<li><code>git branch -d/-D</code> - delete branch (local)</li>
+			<li><code>git push &lt;remote name&gt; :&lt;name&gt;</code> - delete branch (remote)</li>
+			<li><a href="http://stevelosh.com/blog/2013/04/git-koans/">Git Koans</a></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: merge and rebase</h2>
+		<ul>
+			<li><code>git merge [--squash]</code> - merge with other branch</li>
+			<li><code>git rebase</code> - rebase against other branch</li>
+			<li><code>git cherry-pick</code> - take commit(s), duplicating history</li>
+			<li><code>git mergetool</code> - resolve conflicts</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: stashing</h2>
+		<ul>
+			<li><code>git stash</code> - take the snapshot of modified and staged, then do <code>git reset --hard</code></li>
+			<li><code>git stash pop</code> - recover the modified and staged</li>
+			<li><code>git stash list</code> - view LIFO</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git basics: tagging</h2>
+		<ul>
+			<li><code>git tag</code> - mark HEAD with a label</li>
+			<li><code>git pull --tags</code> - fetch tags, too</li>
+			<li><code>git push --tags</code> - push with tags</li>
 		</ul>
 	</div></section>
 	<section class="slide"><div>
