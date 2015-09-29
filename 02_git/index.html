@@ -278,6 +278,7 @@
 			<li>Two major versions, the latest is the second (Google still suggests the first!)</li>
 			<li><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> license (open and free)</li>
 			<li>The source is maintained on <a href="https://github.com/progit/progit2">GitHub</a></li>
+			<li><a href="https://try.github.io">Screw the book, I want to practice at once</a></li>
 			<style>
 			  #progit {
 					height: 300px;
@@ -326,6 +327,7 @@
 			<li><code>git log</code> - show what happened before on the current branch</li>
 			<li><code>git reflog</code> - show the last N repository states</li>
 			<li>Perhaps, these are the only commands where GUI can do better</li>
+			<li>GUI: gitk, qgit, SourceTree, [SmartGit, Tower], etc.</li>
 		</ul>
 	</div></section>
 	<section class="slide"><div>
@@ -384,6 +386,7 @@
 			<li><code>git branch -d/-D</code> - delete branch (local)</li>
 			<li><code>git push &lt;remote name&gt; :&lt;name&gt;</code> - delete branch (remote)</li>
 			<li><a href="http://stevelosh.com/blog/2013/04/git-koans/">Git Koans</a></li>
+			<li><a href="http://pcottle.github.io/learnGitBranching/">Interactive tutorial</a></li>
 		</ul>
 	</div></section>
 	<section class="slide"><div>
@@ -394,6 +397,15 @@
 			<li><code>git cherry-pick</code> - take commit(s), duplicating history</li>
 			<li><code>git mergetool</code> - resolve conflicts</li>
 		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>GitHub demo</h2>
+		<img src="pictures/github.png" id="github">
+	  <style>
+			#github {
+				height: 500px;
+			}
+		</style>
 	</div></section>
 	<section class="slide"><div>
 		<h2>Git basics: stashing</h2>
@@ -412,13 +424,41 @@
 		</ul>
 	</div></section>
 	<section class="slide"><div>
-		<h2>GitHub demo</h2>
-		<img src="pictures/github.png" id="github">
-	  <style>
-			#github {
-				height: 500px;
-			}
-		</style>
+		<h2>Git basics: patches</h2>
+		<ul>
+			<li><code>git format-patch &lt;commit&gt;</code> - create patch files from
+				each commit after &lt;commit&gt;</li>
+			<li>The output looks very much like <code>git diff</code></li>
+			<li><code>git apply</code> - apply patch</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git submodules</h2>
+		<ul>
+			<li><code>git submodule add &lt;where&gt; &lt;path&gt;</code> - register new submodule</li>
+			<li><code>git submodule update --init [--recursive]</code> - pulls all submodules
+				and <span style="color: red;">detaches HEADs of each</span></li>
+			<li>Use submodules only if you really have to</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Git maintenance</h2>
+		<ul>
+			<li><code>git fsck</code> - check internal integrity</li>
+			<li><code>git gc</code> - garbage collect objects</li>
+			<li><a href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo-Cleaner</a></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Next steps</h2>
+		<ul>
+			<li>Register on <a href="https://github.com">GitHub</a></li>
+			<li>Create the repository for your future project</li>
+			<li>Pass interactive git tutorials: <a href="https://www.codeschool.com/courses/git-real">1</a>,
+			<a href="https://try.github.io">2</a>, <a href="http://pcottle.github.io/learnGitBranching/">3</a>,
+			<a href="http://gitimmersion.com/">4</a></li>
+			<li><a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf">Download cheatsheet</a></li>
+		</ul>
 	</div></section>
 	<p class="badge"><a href="https://github.com/vmarkovtsev/mipt_web_2015">View on Github</a></p>
 	<!--
