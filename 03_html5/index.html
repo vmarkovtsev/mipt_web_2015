@@ -56,10 +56,210 @@
 			<li>WHATWG: <a href="https://html.spec.whatwg.org/multipage/">living standard</a></li>
 		</ul>
 	</div></section>
+	<section class="slide"><div>
+		<h2>HTML resources</h2>
+		<ul>
+			<li>Google / Yandex</li>
+			<li><a href="http://www.w3schools.com/">w3schools.com</a></li>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">Mozilla Developer Network</a></li>
+			<li>htmlbook.ru - <span style="color: red;">not recommended</span></li>
+			<li><a href="http://caniuse.com/">Can i use</a> - browser support reference</li>
+			<li><a href="https://www.codecademy.com/tracks/web">Interactive tutorial</a> by Code Academy</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Editors</h2>
+		<ul>
+			<li><a href="http://brackets.io/">Adobe Brackets</a>
+				<ul>
+					<li class="good">Optimized for layout designers</li>
+					<li class="good">Open source</li>
+				</ul>
+			</li>
+			<li><a href="https://atom.io/">GitHub Atom</a>
+				<ul>
+					<li class="good">General-purpose editor wih tons of plugins</li>
+					<li class="good">Open source</li>
+					<li class="good">GitHub integration</li>
+				</ul>
+			</li>
+			<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>
+				<ul>
+					<li class="good">Optimized for Microsoft technologies</li>
+					<li class="bad">Proprietary, vendor lock-in</li>
+					<li class="bad">Not popular</li>
+				</ul>
+			</li>
+			<li><a href="http://www.sublimetext.com/">Sublime Text</a>
+				<ul>
+					<li class="good">General-purpose editor wih tons of plugins</li>
+					<li class="bad">Costs $70</li>
+				</ul>
+			</li>
+		</ul>
+		<style>
+		  .good {
+				color: green;
+			}
+      .bad {
+				color: red;
+			}
+			ul ul {
+				font-size: 50%;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Code playgrounds</h2>
+		<p>Interactively test markup/scripts and share your experiments with others</p>
+		<ul>
+			<li><a href="http://jsfiddle.net/">JSFiddle</a></li>
+			<li><a href="http://codepen.io/">Codepen</a></li>
+		</ul>
+		<iframe height='241' scrolling='no'
+		  src='http://codepen.io/jackrugile/embed/bdwvMo/?height=241&theme-id=7872&default-tab=result'
+			frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>
+			See the Pen <a href='http://codepen.io/jackrugile/pen/bdwvMo/'>Rainbow Grid</a> by Jack Rugile
+			(<a href='http://codepen.io/jackrugile'>@jackrugile</a>) on <a href='http://codepen.io'>CodePen</a>.
+    </iframe>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Browser's developer tools</h2>
+		<p>Press Ctrl + Shift + C</p>
+		<ul>
+			<li>Inspect elements</li>
+			<li>Change tags, values, CSS</li>
+			<li>Debug scripts</li>
+			<li>Analyze profiles</li>
+			<li>Switch media types</li>
+			<li>etc.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Web page structure</h2>
+		<ul id="html-code-example-prev">
+			<li>HTML code define semantics</li>
+			<li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">Cascading Style Sheets</a> (CSS)
+				define vizualization</li>
+			<li><a href="https://en.wikipedia.org/wiki/JavaScript">Javascript</a> code define behaviour</li>
+		</ul>
+		<pre id="html-code-example"><code>&lt;<span class="tag">html</span>&gt;</code>
+<code>  &lt;<span class="tag">head</span>&gt;</code>
+<code>    &lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span> <span class="attr">href</span>=<span class="value">"page.css"</span>&gt;</code>
+<code>    &lt;<span class="tag">style</span>&gt;...&lt;/<span class="tag">style</span>&gt;</code>
+<code>  &lt;/<span class="tag">head</span>&gt;</code>
+<code>  &lt;<span class="tag">body</span>&gt;</code>
+<code class="html-comment">    &lt;!-- ... --&gt;</code>
+<code>    &lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="value">"page.min.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;</code>
+<code>  &lt;/<span class="tag">body</span>&gt;</code>
+<code>&lt;/<span class="tag">html</span>&gt;</code></pre>
+  <style>
+	  #html-code-example {
+			font-size: 60%;
+		}
+		#html-code-example-prev {
+			margin-bottom: 20px;
+		}
+	  .tag {
+			color: #D831B0;
+		}
+		.attr {
+			color: hsl(32, 60%, 50%);
+		}
+		.value {
+			color: hsl(160,  70%, 42%);
+		}
+		.html-comment {
+			color: gray !important;
+		}
+  </style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>HTML tag</h2>
+		<ul>
+			<li>Can either require closure or not</li>
+			<li>Must belong to the list of predefined names
+				(unless <a href="https://www.polymer-project.org">Google Polymer</a> is not used)</li>
+			<li>Corresponds to an
+				<a href="http://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements">element</a>
+			in browser's <a href="https://ru.wikipedia.org/wiki/Document_Object_Model">Document Object Model</a> (DOM)</li>
+      <li>Attributes may have no values at all, attribute values may be unquoted
+				if they don't contain spaces or any of " ' ` = &lt; or &gt;</li>
+			<li>Should include appropriate <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA</a>
+			attributes to make content accessible for to people with disabilities</li>
+		</ul>
+	</div></section>
 
+	<section class="slide"><div>
+		<h2>HTML tags overview</h2>
+		<ul>
+			<li>TODO</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Build pipeline</h2>
+		<ol style="font-size: 90%;">
+			<li>Produce CSS files (from <a href="http://sass-lang.com/">SASS</a>,
+				<a href="http://lesscss.org/">Less</a>, <a href="https://learnboost.github.io/stylus/">Stylus</a>, etc.)</li>
+			<li>Apply browser extensions and workarounds to CSS</li>
+			<li>Minify and merge CSS into single optimized file</li>
+			<li>Produce JS files (from <a href="https://en.wikipedia.org/wiki/ECMAScript#Harmony.2C_6th_Edition">ES6</a>,
+				from <a href="http://coffeescript.org/">CoffeeScript</a>, from <a href="http://www.typescriptlang.org/">TypeScript</a>, etc.)</li>
+			<li>Minify and merge JS into single optimized file</li>
+			<li>Produce media files (raster images, fonts, SVG, video, audio)</li>
+			<li>Optimize media files (minify, recompress, merge)</li>
+			<li>Produce HTML files (from <a href="http://jade-lang.com/">Jade</a>, from
+				<a href="http://haml.info/">HAML</a>, from <a href="http://jinja.pocoo.org/">Jinja2</a>, etc.)</li>
+			<li>Link with resources (CSS, JS, images, etc.)</li>
+			<li>Minify and merge HTML into single optimized file</li>
+			<li>Validate HTML</li>
+		</ol>
+	</div></section>
+	<section class="slide" id="html-mini"><div>
+		<h2>Markup minification</h2>
+    <img src="pictures/before.png">
+		<p>turns into</p>
+		<img src="pictures/after.png">
+		<style>
+      #html-mini img {
+				width: 780px;
+			}
+			#html-mini p{
+				display: table;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Markup minification</h2>
+		<p>You should make the resulting production HTML code as small as possible</p>
+		<ul>
+			<li>Online minifiers: <a href="http://www.willpeavy.com/minifier/">1</a>,
+			<a href="https://kangax.github.io/html-minifier/">2</a></li>
+			<li>Use tools like <a href="https://github.com/kangax/html-minifier">html-minifier</a>...</li>
+			<li>...or better include the minification step into your build pipeline</li>
+		</ul>
+		<p><a href="https://developers.google.com/speed/pagespeed/insights/">Google PageSpeed Insights</a> is a complete optimization solution</p>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Markup validation</h2>
+		<p>You should validate your markup against the standard</p>
+		<ul>
+			<li><a href="https://validator.w3.org/">Online W3C validator</a></li>
+			<li>Use tools like <a href="https://github.com/thomasdavis/w3cjs">w3cjs</a>...</li>
+			<li>...or better include the validation step into your build pipeline</li>
+		</ul>
+	</div></section>
 	<section class="slide"><div>
 		<h2>Next steps</h2>
 		<ul>
+			<li>Read <a href="https://html.spec.whatwg.org/multipage/">the standard</a></li>
+			<li>Read <a href="https://toster.ru/q/67548">books</a></li>
+			<li>Pass <a href="https://www.codecademy.com/tracks/web">interactive tutorial</a></li>
+			<li>Download cheatsheet: <a href="http://websitesetup.org/HTML5-cheat-sheet.pdf">1</a>,
+			<a href="http://media.mediatemple.netdna-cdn.com/wp-content/uploads/images/html5-cheat-sheet/html5-cheat-sheet.pdf">2</a></li>
 			<li>Continue to <a href="../04_css3/index.html">HTML5 (stylesheets)</a></li>
 		</ul>
 	</div></section>
