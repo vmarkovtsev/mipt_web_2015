@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Web Programming @ MIPT - 01</title>
+	<title>Web Programming @ MIPT - 04</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,7 +19,91 @@
 		<p>Web Programming @ MIPT, 2015-2016</a></p>
 		<img src="pictures/qrcode.png" id="qr">
 	</div></section>
-
+	<section class="slide"><div>
+		<h2>What is CSS</h2>
+		<ul>
+			<li><a href="http://www.w3.org/TR/css-2010/">Cascading Style Sheets</a></li>
+			<li>Specify how to visualize the DOM</li>
+			<li>Organized as the plain list of rules</li>
+			<li>Each rule is applied to certain elements via selectors</li>
+			<li>Each rule may change several display options</li>
+			<li>CSS is included into HTML page via <code>style</code>
+				attribute, &lt;style&gt; or &lt;link&gt;</li>
+		</ul><pre><code>a {
+	color: blue;
+}</code>
+		</pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Selectors</h2>
+		<ul>
+			<li><a href="http://www.w3.org/TR/css3-selectors/">The Standard</a></li>
+			<li>Comprise of the following types:
+				<ul class="compact-list">
+					<li>Type selector <code>a {}</code></li>
+					<li>Universal selector <code>* {}</code></li>
+					<li>Attribute selector <code>[extra~=style]</code> ... <code>&lt;span extra="style other"&gt;</code></li>
+					<li>Class selector <code>.highlight {}</code> ... <code>&lt;span class="highlight"&gt;</code></li>
+					<li>ID selector <code>#special {}</code> ... <code>&lt;span id="special"&gt;</code></li>
+				</ul>
+			</li>
+			<li>May recursively contain other selectors via combinators</li>
+			<li>There are pseudo-classes for even more fine-grained control and interactivity</li>
+			<li>There are pseudo-elements for reverse DOM manipulation</li>
+		</ul>
+		<style>
+      .compact-list {
+				font-size: 80%;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Combinators</h2>
+		<ul>
+			<li><code>selector1,selector2</code> is like "or"</li>
+			<li><code>selector1selector2</code> is like "and"</li>
+			<li><code>selector1 selector2</code> is for descendants</li>
+			<li><code>selector1 > selector2</code> is for children (direct descendants)</li>
+			<li><code>selector1 + selector2</code> is for direct siblings</li>
+			<li><code>selector1 ~ selector2</code> is for general siblings</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Pseudo-classes</h2>
+		<ul>
+			<li>Dynamic
+				<ul class="compact-list">
+					<li><code>:hover</code> - mouse is over</li>
+					<li><code>:focus</code> - element is focused</li>
+					<li><code>:visited</code> - link was previously visited</li>
+				</ul>
+			</li>
+			<li><code>:target</code></li>
+			<li><code>:lang</code></li>
+			<li>UI states
+				<ul class="compact-list">
+					<li><code>:enabled</code>, <code>:disabled</code></li>
+					<li><code>:checked, :indeterminate</code></li>
+				</ul>
+			</li>
+			<li>Structural, e.g. <code>:nth-child</code></li>
+			<li><code>:not</code></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Pseudo-elements</h2>
+		<ul>
+			<li><code>::before, ::after</code> insert elements with special option "content"</li>
+			<li><code>::first-letter, ::first-line</code></li>
+			<li><code>::selection</code> - highlighted text, only in
+				<a href="https://drafts.csswg.org/css-pseudo-4/#highlight-selectors">level 4</a></li>
+		</ul>
+		<pre><code>a::after {
+  content: attr(hint);
+  color: red;
+}
+&lt;a hint="test"&gt;&lt;/a&gt;</code></pre>
+	</div></section>
 	<section class="slide"><div>
 		<h2>CSS box model</h2>
 		<img id="box-model" src="pictures/box-model.gif">
@@ -31,6 +115,30 @@
 		</style>
 	</div></section>
 	<section class="slide"><div>
+		<h2>CSS units</h2>
+		<a href="https://developer.mozilla.org/ru/docs/Web/CSS/length">Link</a>
+		<ul>
+			<li>Absolute: px, mm, cm, in, pt, pc</li>
+			<li>Font: em, ex, ch, rem</li>
+      <li>Viewport: vh, vw, vmin, vmax</li>
+			<li>%</li>
+			<li>auto</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>CSS box model options</h2>
+		<ul>
+			<li><code>margin</code>; <code>margin-left</code>, <code>margin-top</code>, etc. May be negative.</li>
+			<li><code>border</code>: <code>border-style</code>, <code>border-width</code>, <code>border-color</code>, etc.</li>
+      <li><code>padding</code>: <code>padding-left</code>, <code>padding-top</code>, etc. May <em>not</em> be negative.</li>
+		</ul>
+		<pre><code>div#container {
+  margin: 1px 2em 3% 4vh;  /* top right bottom left */
+  border: 1px solid blue;
+  padding: auto 5vmin;  /* top = bottom, right = left */
+}</code></pre>
+	</div></section>
+	<section class="slide"><div>
 		<h2>box-sizing</h2>
 		<p>Sets whether padding and border must be included into width and height.</p>
 		<ul>
@@ -38,8 +146,32 @@
 			<li>border-box</li>
 		</ul>
 	</div></section>
-
-	<section><div>
+	<section class="slide"><div>
+		<h2>CSS layout</h2>
+		<img src="pictures/css-normal-flow.png" id="css-flow">
+		<style>
+      #css-flow {
+				display: table;
+				height: 500px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>display</h2>
+		<p>Sets which element box type is used. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">Link</a>.</p>
+		<ul>
+			<li>none - invisible, do not take part in the layout</li>
+			<li>block - no horizontal elements before and after</li>
+			<li>inline - like text</li>
+			<li>inline-block - inline box</li>
+			<li>flex - modern grid</li>
+			<li>table* - traditional grid</li>
+			<li>...</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
 		<h2>flex-box</h2>
 		<pre>
 			<code>display: flex;</code>
@@ -48,6 +180,73 @@
 			<li><a href="http://www.w3.org/TR/css3-flexbox/">Standard</a></li>
 			<li><a href="http://habrahabr.ru/post/242545/">Article</a></li>
 			<li><a href="http://flexboxgrid.com/">flexboxgrid</a> - CSS framework</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>position</h2>
+    <p>Controlls how elements are positioned.
+			<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN</a>,
+		<a href="https://drafts.csswg.org/css-position/Overview.html">Standard</a></p>
+		<ul>
+			<li><code>static</code> - this is the default, obey the normal flow</li>
+			<li><code>relative</code> - move element without changing the layout</li>
+			<li><code>absolute</code> - allows setting exact coordinates
+				(<code>left</code>, <code>top</code>, etc.) in the parent element,
+				ignored in layout</li>
+			<li><code>fixed</code> - allows setting exact coordinates in the viewport,
+			element is ignored in layout</li>
+			<li><code>sticky</code> - similar to relative, read an
+				<a href="http://www.sitepoint.com/css-position-sticky-introduction-polyfills/">example</a>,
+			not supported by Chrome</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>float</h2>
+    <ul>
+			<li>Excludes element from the flow, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">MDN</a></li>
+			<li><code>float: left;</code> (<code>right</code>)</li>
+		</ul>
+		<div style="float: left; width: 100px; height: 150px; background-color: blue; margin-right: 20px;"></div>
+		<span style="font-size: 80%;">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis ultricies nibh.
+			Mauris posuere sit amet erat sed porttitor. Praesent interdum arcu et felis
+			imperdiet, sodales vulputate mi auctor. Pellentesque habitant morbi tristique
+			senectus et netus et malesuada fames ac turpis egestas. Pellentesque dignissim
+			<div style="float: right; width: 100px; height: 150px; background-color: red; margin-left: 20px;"></div>
+			hendrerit faucibus. Integer a viverra tortor. Aliquam varius ac dui eu convallis.
+			Proin a ipsum lectus. Ut tristique felis justo, quis cursus dui egestas ac.
+			Duis at porta quam, et tempus orci. Donec quis luctus est, id sagittis sapien.
+		</span>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Hiding elements</h2>
+    <ul>
+			<li><code>display: none;</code> - changes layout</li>
+			<li><code>visibility: hidden;</code> - saves layout, but triggers the event
+				(opposite is <code>visible</code>)</li>
+			<li><code>opacity: 0;</code> - saves layout, does not trigger the event</li>
+			<li><code>clip: rect(0, 0, 0, 0);</code> - saves layout, does not trigger
+				the event, exotic, should not be used</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Preprocessors</h2>
+		<p>There are compilers into CSS to make programmer's life easier.
+			They add inheritance, mixins, variables, loops, etc.</p>
+		<ul>
+			<li><a href="http://sass-lang.com/">SASS</a> - most common</li>
+			<li><a href="http://lesscss.org/">Less</a></li>
+			<li><a href="https://learnboost.github.io/stylus/">Stylus</a></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Postprocessors</h2>
+		<p>Manipulate CSS to improve it.</p>
+		<ul>
+			<li>Same CSS option may require different prefixes or even different
+				naming. This problem is solved by <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a></li>
+			<li>Splitted options can be merged into single, saving space. E.g., by
+				<a href="https://github.com/frankmarineau/shrthnd.js">shrthnd</a>.</li>
 		</ul>
 	</div></section>
 	<section class="slide"><div>
@@ -66,7 +265,7 @@
 			</li>
 		</ul>
 	</div></section>
-	<section><div>
+	<section class="slide"><div>
 		<h2>Deployment</h2>
 		<ul>
 			<li><a href="https://pages.github.com/">GitHub pages</a></li>
