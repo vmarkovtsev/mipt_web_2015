@@ -139,6 +139,14 @@
 }</code></pre>
 	</div></section>
 	<section class="slide"><div>
+		<h2>Box size</h2>
+		<ul>
+			<li><code>width</code>, <code>height</code> - give a hint to a browser</li>
+			<li><code>max-width</code>, <code>min-width</code>, <code>max-height</code>, <code>min-height</code> -
+			strongly demand</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
 		<h2>box-sizing</h2>
 		<p>Sets whether padding and border must be included into width and height.</p>
 		<ul>
@@ -228,6 +236,69 @@
 			<li><code>clip: rect(0, 0, 0, 0);</code> - saves layout, does not trigger
 				the event, exotic, should not be used</li>
 		</ul>
+	</div></section>
+	<section class="slide" id="slide-centering"><div>
+		<h2>Centering horizontally</h2>
+    <pre class="centering"><code>{
+  display: table;  /* block requires setting width */
+  margin-left: auto;
+  margin-right: auto;
+}</code></pre>
+		<pre class="centering"><code>{
+  display: inline;  /* inline-block */
+  text-align: center;
+}</code></pre>
+		<pre class="centering"><code>{  /* parent */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}</code></pre>
+		<style>
+		  #slide-centering {
+				counter-reset: pre;
+			}
+      pre.centering {
+			  font-size: 65%;
+				margin-bottom: 10px;
+		  }
+			pre.centering::before {
+				counter-increment: pre;
+				content: counter(pre, decimal);
+				position: absolute;
+				left: 80px;
+				color: gray;
+			}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Font</h2>
+    <ul>
+			<li><code>font-family</code> sets font type</li>
+			<li><code>font-size</code></li>
+			<li><code>font-style</code> allows making italic text</li>
+			<li><code>font-weight</code> changes thickness</li>
+			<li>All of these can be set in single <code>font</code></li>
+			<li>External fonts may be linked, see e.g.
+				<a href="https://www.google.com/fonts">Google Web Fonts</a></li>
+			<li>There are <code>text-decoration</code>, <code>text-shadow</code>, etc.</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Animation</h2>
+    <ul style="margin-bottom: 10px;">
+			<li>You can animate many properties using <code>@keyframes</code> and
+			referencing it with <code>animation-name</code></li>
+			<li><a href="http://www.w3schools.com/css/css3_animations.asp">Reference</a></li>
+			<li><a href="http://codepen.io/tag/css%20animation">Examples</a></li>
+			<li><code>animation-timing-function</code>: <a href="http://easings.net/ru">explanation</a></li>
+		</ul>
+		<iframe height='250' scrolling='no'
+		src='http://codepen.io/tvolodimir/embed/HipyD/?height=268&theme-id=0&default-tab=result'
+		frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>
+		See the Pen <a href='http://codepen.io/tvolodimir/pen/HipyD/'>single element hypnosis-loader</a>
+		by Volodymyr (<a href='http://codepen.io/tvolodimir'>@tvolodimir</a>) on
+		<a href='http://codepen.io'>CodePen</a>.
+</iframe>
 	</div></section>
 	<section class="slide"><div>
 		<h2>Preprocessors</h2>
