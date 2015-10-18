@@ -35,6 +35,21 @@
 		</pre>
 	</div></section>
 	<section class="slide"><div>
+		<h2>Rules sequence</h2>
+		<ul>
+			<li>There may be conflicts between rules changing the same property</li>
+			<li>In such cases, later rules have a priority over the earlier</li>
+			<li>Use <code>!important</code> to forcefully pin property regardless of the rule precedence order</li>
+		</ul>
+		<pre style="font-size: 75%;"><code>a {
+	color: blue !important;
+}</code>
+<code>a {
+color: red;  /* ignored */
+}</code>
+		</pre>
+	</div></section>
+	<section class="slide"><div>
 		<h2>Selectors</h2>
 		<ul>
 			<li><a href="http://www.w3.org/TR/css3-selectors/">The Standard</a></li>
@@ -284,6 +299,19 @@
 		</ul>
 	</div></section>
 	<section class="slide"><div>
+		<h2>Colors</h2>
+    <ul>
+			<li>By name: <code style="background-color: red; color: white;">red</code>,
+				<code style="background-color: green; color: white;">green</code>, etc.
+				<a href="http://www.w3schools.com/cssref/css_colornames.asp">list of names</a></li>
+			<li>By rgb: <code style="background-color: red; color: white;">rgb(255, 0, 0)</code></li>
+			<li>By hexademical value: <code style="background-color: red; color: white;">#FF0000</code></li>
+			<li>By rgba: <code style="background-color: rgba(255, 0, 0, 0.5); color: white;">rgba(255, 0, 0, 0.5)</code>
+			 (last number is opacity in interval from 0 to 1, inclusive)</li>
+			<li>There is no way to set opacity using hex representation</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
 		<h2>Animation</h2>
     <ul style="margin-bottom: 10px;">
 			<li>You can animate many properties using <code>@keyframes</code> and
@@ -356,7 +384,7 @@
 			<a href="http://learn.shayhowe.com/">3</a></li>
 			<li>Download cheatsheet: <a href="http://www.smashingmagazine.com/wp-content/uploads/images/css3-cheat-sheet/css3-cheat-sheet.pdf">1</a>,
 			<a href="http://www.labri.fr/perso/falleri/dist/ens/it103/sheets/css.pdf">2</a></li>
-			<li>Continue to <a href="../05_javascript/index.html">ES6 (Javascript)</a></li>
+			<li>Continue to <a href="../05_es6/index.html">ES6 (Javascript)</a></li>
 		</ul>
 	</div></section>
 	<p class="badge"><a href="https://github.com/vmarkovtsev/mipt_web_2015">View on Github</a></p>
