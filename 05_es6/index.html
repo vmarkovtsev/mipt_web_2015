@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Web Programming @ MIPT - 04</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="../common/shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" href="../common/shower/cover.css">
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Web Programming @ MIPT, 2015-2016</h1>
+		<p>Markovtsev Vadim</p>
+	</header>
+	<section class="slide cover" id="cover"><div>
+		<img src="pictures/cover.jpg" alt="">
+		<h2>ES6 (Javascript)</h2>
+		<p>Web Programming @ MIPT, 2015-2016</a></p>
+		<img src="pictures/qrcode.png" id="qr">
+	</div></section>
+	<section class="slide"><div>
+		<h2>What is Javascript</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/JavaScript">The language</a> which
+				drives the web; also used for embedded scripting and general-purpose programming</li>
+			<li>Standard is named <a href="http://www.ecma-international.org/ecma-262/6.0/">ECMAScript</a></li>
+			<li>Not related to Java in any way</li>
+			<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming_language">Dynamic</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Strong_and_weak_typing#Definitions_of_.22strong.22_or_.22weak.22">
+				Weakly typed</a> (objects can implicitly change type)</li>
+			<li><a href="https://en.wikipedia.org/wiki/Prototype-based_programming">Prototype-based</a> (no class types)</li>
+			<li>Functions are <a href="https://en.wikipedia.org/wiki/First-class_function">first class citizens</a>
+				(functions are ordinary objects)</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Annotation</h2>
+		<p>This presentation is devoted to client-side Javascript (aka "in browser");
+			server-side (aka "general-purpose") JS is addressed in <a href="../07_nodejs/index.html">node.js</a>.</p>
+	</div></section>
+	<section class="slide"><div>
+		<h2>History</h2>
+		<ul>
+			<li>First version was developed in 10 days in 1995 at Netscape</li>
+			<li>ECMAScript 1.0 standard was issued in 1997</li>
+			<li>3.0 appeared in 1999</li>
+			<li>4.0 was never completed; 5.0 went live in 2009</li>
+			<li>Latest is 6.0 (June 2015)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>eval</h2>
+		<ul>
+			<li><code>eval()</code> executes arbitrary JS code</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>getters and setters</h2>
+		<ul>
+			<li>Prepend <code>get</code> to object's function name to make it a
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get">getter</a></li>
+				<li>Prepend <code>set</code> to object's function name to make it a
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set">setter</a></li>
+		</ul>
+		<pre><code>var obj = {</code>
+<code>  get foo() { return 10; }</code>
+<code>};</code>
+<code>obj.foo;  // 10</code></code></pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>=, == and ===</h2>
+		<ul>
+			<li><code>=</code> is for assignment</li>
+			<li><code>== (!=)</code> is for equality checking with implicit type cast</li>
+			<li><code>=== (!==)</code> is for equality checking without implicit type cast</li>
+		</ul>
+		<pre><code>var a = 4, b = '4';</code>
+<code>a == b;  // true</code>
+<code>a === b;  // false</code></pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Modes</h2>
+		<ul>
+			<li>default - silences many errors</li>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">strict</a></li>
+		</ul>
+		<pre><code>function foo() {</code>
+<code>  "use strict";</code>
+<code>}</code></pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>WTF</h2>
+		<p>Javascript can be awkward. There is even a dedicated collection of it's dark sides:
+			<a href="http://wtfjs.com/">wtfjs</a>. Some examples taken from
+			<a href="http://stackoverflow.com/questions/1995113/strangest-language-feature">StackOverflow</a>:</p>
+			<div style="display: flex;">
+				<div style="margin-right: 100px;">
+					<pre class="wtfjs"><code>'5' + 3  // '53'</code>
+<code>'5' - 3  // 2</code>
+<code>'5'- - '3'  // 8</code></pre><pre class="wtfjs"><code>function four() {</code>
+<code>  return</code>
+<code>    2 + 2;</code>
+<code>}</code>
+<code>four();  // undefined</code></pre>
+				</div>
+				<div>
+					<pre class="wtfjs"><code>''        ==   '0'           // false</code>
+<code>0         ==   ''            // true</code>
+<code>0         ==   '0'           // true</code>
+<code>false     ==   'false'       // false</code>
+<code>false     ==   '0'           // true</code>
+<code>false     ==   undefined     // false</code>
+<code>false     ==   null          // false</code>
+<code>null      ==   undefined     // true</code>
+<code>" \t\r\n" ==   0             // true</code>
+					</pre>
+				</div>
+			</div>
+  <style>
+  .wtfjs {
+		font-size: 75%;
+	}
+	</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>CoffeeScript</h2>
+		<p>Javascript used to be ugly; there are special projects to improve client-side
+		programming experience, e.g. <a href="http://coffeescript.org/">CoffeeScript</a>.</p>
+		<ul>
+			<li>Python look, better syntax</li>
+			<li>Compiles to Javascript without any runtime</li>
+			<li>Unfortunately, still requires the knowledge of JS</li>
+			<li>There is a <a href="http://arcturo.github.io/library/coffeescript/">book</a></li>
+			<li>Influenced ES6 much</li>
+			<li>ES6 makes it a bit obsolete</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>API: DOM manipulation</h2>
+		<ul>
+			<li>Read the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">introduction</a></li>
+      <li>There are <code>document</code> and <code>window</code> global variables which serve the party</li>
+			<li>All global variables are attached to <code>window</code>;
+				<code>window.window&nbsp;===&nbsp;window</code> is true</li>
+		</ul>
+		Example of DOM manipulation:
+		<pre style="font-size: 95%;"><code>var heading = document.createElement("h1");</code>
+<code>heading.appendChild(document.createTextNode("Hello, World!"));</code>
+<code>document.body.appendChild(heading);</code></pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>API: deferred execution</h2>
+		<ul>
+			<li><code>setTimeout()</code> <a href="http://www.w3schools.com/jsref/met_win_settimeout.asp">deferrs</a>
+				function execution by the given interval in millisecs</li>
+			<li><code>setInterval()</code> <a href="http://www.w3schools.com/jsref/met_win_setinterval.asp">calls</a>
+			function each specified number of millisecs</li>
+			<li><code>clearTimeout()</code> and <code>clearInterval()</code> cancel execution by identifier
+			returned from <code>setTimeout()</code> and <code>setInterval()</code></li>
+		</ul>
+		<pre><code>setInterval((txt) => console.log(txt), 1000, "hello, world");</code>
+		</pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>API: JSON</h2>
+		<div style="font-size: 80%;">
+		<p>There are cases when it is needed to convert an object into
+		some text/binary representation which can be stored on disk or sent over the internet.
+	  This convertion is called <a href="https://en.wikipedia.org/wiki/Serialization">serialization</a>.</p>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/JSON">JSON</a> is a versatile open format ideal for the web</li>
+			<li><code>JSON.stringify()</code>
+				<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">
+					performs</a> the conversion object -&gt; JSON</li>
+			<li>
+				<code>JSON.parse()</code>
+				<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">
+					restores</a> object from JSON</li>
+		</ul>
+		<pre><code>var a = {field: 10};  // Object {field: 10}</code>
+<code>JSON.stringify(a);  // "{"field":10}"</code>
+<code>JSON.parse(JSON.stringify(a));  // Object {field: 10}</code>
+<ocde></ocde>
+		</pre>
+		</div>
+	</div></section>
+	<section class="slide"><div>
+		<h2>jQuery</h2>
+		<ul id="jqlist">
+			<li><a href="https://jquery.com/">Official site</a></li>
+			<li>Appeared in 2006</li>
+			<li>Simplifies DOM manipulation, event handling, AJAX</li>
+			<li>Has two versions: 2.x (for modern browsers) and 1.x (for IE and legacy browsers)</li>
+			<li>Very widespread</li>
+		</ul>
+		<script async defer src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<button type="button" onclick="$('#jqlist').toggle();">Toggle</button>
+		<pre><code>$("#jqlist").toggle();</code></pre>
+		<style>
+		#jqlist {
+			padding-left: 40px;
+			border: 4px dashed gray;
+			border-radius: 20px;
+			position: relative;
+		}
+		#jqlist::before {
+			content: "#jqlist";
+			position: absolute;
+			top: 10px;
+			left: 400px;
+			color: gray;
+			font-size: 150%;
+		}
+    #jqlist ~ button {
+			float: right;
+			height: 50px;
+			cursor: pointer;
+			font-size: 100%;
+		}
+		</style>
+	</div></section>
+	<section class="slide"><div id ="d3jsdemo">
+		<h2>d3.js</h2>
+		<ul>
+			<li>Stands for <a href="http://d3js.org/">Data-Driven Documents</a></li>
+			<li>Allows creating all sort of graphs, diagrams, charts, plots, etc.</li>
+			<li>Very useful in scientific visualization</li>
+			<li>There are <a href="https://github.com/mbostock/d3/wiki/Tutorials">tutorials</a></li>
+			<li>You can use it for your cool personal page eyecandy</li>
+		</ul>
+		<iframe height='250' scrolling='no'
+		src='http://codepen.io/nohoid/embed/bNwPRX/?height=499&theme-id=0&default-tab=result'
+		frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%; position: absolute; left: 0; right: 0;'>See the Pen
+		<a href='http://codepen.io/nohoid/pen/bNwPRX/'>"rainbow spiral spring" d3js.org (moaré fx)</a>
+		by Milan Nohejl (<a href='http://codepen.io/nohoid'>@nohoid</a>) on <a href='http://codepen.io'>CodePen</a>.
+    </iframe>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Next steps</h2>
+		<ul>
+			<li>Read <a href="http://www.w3.org/standards/techs/css">http://www.ecma-international.org/ecma-262/6.0</a></li>
+			<li>Read books: <a href="http://eloquentjavascript.net/">1</a>, <a href="http://exploringjs.com/es6/">2</a></li>
+			<li>Pass interactive tutorials: <a href="https://www.codecademy.com/tracks/javascript">1</a>,
+				<a href="https://www.codeschool.com/courses/javascript-road-trip-part-1?mbsy=7vHWN&url=https%3A%2F%2Fwww.codeschool.com%2Fcourses%2Fjavascript-road-trip-part-1&mbsy_source=b80ba35c-afe0-4076-a94e-8630f59851fc&campaignid=2212">2</a></li>
+			<li>Download cheatsheet: <a href="http://overapi.com/javascript/">1</a>,
+			<a href="http://www.cheatography.com/davechild/cheat-sheets/javascript/">2</a></li>
+			<li>Continue to <a href="../06_methodology/index.html">Methodology</a></li>
+		</ul>
+	</div></section>
+	<p class="badge"><a href="https://github.com/vmarkovtsev/mipt_web_2015">View on Github</a></p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="../common/shower/shower.min.js"></script>
+</body>
+</html>
