@@ -47,6 +47,7 @@
 			<li>3.0 appeared in 1999</li>
 			<li>4.0 was never completed; 5.0 went live in 2009</li>
 			<li>Latest is 6.0 (June 2015)</li>
+			<li>See the <a href="https://kangax.github.io/compat-table/es6/">ES6 compatibility table</a></li>
 		</ul>
 	</div></section>
 
@@ -73,6 +74,12 @@
 
 	<section class="slide"><div>
 		<h2>Arrow functions</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Semicolons</h2>
+		<a style="background: none;" href="http://davidwalsh.name/javascript-semicolons">
+			<img style="width: 780px;" src="pictures/semicolons.png"></a>
 	</div></section>
 
 	<section class="slide"><div>
@@ -130,6 +137,14 @@
 
 	<section class="slide"><div>
 		<h2>Classes</h2>
+		<ul>
+			<li><code>class</code> is similar to constructor function, but with fair
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">semantics</a>.</li>
+			<li><code>extends</code> avoids the need of setting <code>prototype</code></li>
+			<li><code>constructor</code> marks the initialization method</li>
+			<li><code>super</code> gives access to inherited object</li>
+			<li><code>static</code> makes static methods</li>
+		</ul>
 	</div></section>
 
 	<section class="slide"><div>
@@ -158,11 +173,54 @@
 	</div></section>
 
 	<section class="slide"><div>
+		<h2>Primitives</h2>
+		<ul>
+			<li><code>if (cond) { ... } elseif (cond) { ... }</code> - conditional</li>
+			<li><code>for var|let i = 0; i < arr.length; i++) { ... }</code> - for</li>
+			<li><code>while (cond) { ... }</code>; <code>do { ... } while (cond)</code> - while</li>
+			<li><code>switch (expression) {}</code> -
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch">
+					switch-case</a> (<code>===</code> is used for comparison)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
 		<h2>Loops</h2>
+		<ul>
+			<li><code>for var|let i in obj</code> - iterates over enumerable properties
+				of <code>obj</code> in arbitrary order</li>
+			<li><code>for var|let i of obj</code> - yields values of
+				<a href="iterable objects">iterable</a> <code>obj</code>, e.g.,
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">
+					Array</a></li>
+		</ul>
+		<pre style="font-size: 60%;"><code>let arr = [3, 5, 7];</code>
+<code>arr.foo = "hello";</code>
+<code><br></code>
+<code>for (let i in arr) {</code>
+<code>   console.log(i); // logs "0", "1", "2", "foo"</code>
+<code>}</code>
+<code><br></code>
+<code>for (let i of arr) {</code>
+<code>   console.log(i); // logs "3", "5", "7"</code>
+<code>}</code>
+		</pre>
 	</div></section>
 
 	<section class="slide"><div>
 		<h2>Exceptions</h2>
+		<ul>
+			<li>Exceptions can be any objects, even <code>undefined</code>.</li>
+			<li><code>finally</code> always have a priority over <code>try...catch</code></li>
+		</ul>
+		<pre><code>try {</code>
+<code>  throw "error";</code>
+<code>} catch (err) {</code>
+<code>  return true;</code>
+<code>} finally {</code>
+<code>  return false;</code>
+<code>}</code>
+		</pre>
 	</div></section>
 
 	<section class="slide"><div>
