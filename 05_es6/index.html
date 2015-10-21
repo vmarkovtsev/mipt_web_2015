@@ -81,10 +81,26 @@
 
 	<section class="slide"><div>
 		<h2>Functions</h2>
+		<ul>
+			<li>Functions are special objects which can be called</li>
+			<li><code>this</code> points to function's properties</li>
+			<li>Function can return another function to make a closure</li>
+			<li>Parameter names can be specified in the signature. Objects which were passed
+			to a function but not specified in it's signature are available in <code>arguments</code></li>
+			<li>Function returns either an object or <code>undefined</code> in case of empty return</li>
+		</ul>
 	</div></section>
 
 	<section class="slide"><div>
 		<h2>Arrow functions</h2>
+		<ul>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">
+			Arrow functions</a> are anonymous functions (lambda functions)</li>
+			<li>They do not impose the change of context (<code>this</code>)</li>
+			<li>They are shorter to write</li>
+		</ul>
+		<pre><code>((msg) => console.log(msg))()</code>
+		</pre>
 	</div></section>
 
 	<section class="slide"><div>
