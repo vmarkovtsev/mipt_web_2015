@@ -316,17 +316,42 @@
 			<li>Example: <a href="https://www.blackducksoftware.com/products/black-duck-suite/protex">BlackDuck Protex</a></li>
 		</ul>
 	</div></section>
-<!--
-Instruments:
-  CI -> continuous delivery
-	Internal Chat: Slack, Gitter, HipChat
-	Issue Tracker: JIRA, Redmine, Trello
-	Knowledge Database: Confluence, MediaWiki, Redmine
-	Code Review: Gerrit, Crucial, Upsource
-	Source code viewer/server: GitLab, Fisheye
-	Customer Desk: ZenDesk, Groove
-	IP prosecution: Protex
--->
+	<section class="slide"><div>
+		<h2>Tools: Source Code Server</h2>
+		<ul>
+			<li>Be the only central code synchronization place</li>
+			<li>Support security rules and policies</li>
+			<li>Allow fast viewing of any SCM-related stuff</li>
+			<li>Example: <a href="https://about.gitlab.com/">GitLab</a> (open source),
+			GitHub (cloud), <a href="https://bitbucket.org/">BitBucket</a> (part of Atlassian ecosystem)</li>
+			<li>Only viewers: <a href="https://git-scm.com/docs/gitweb">GitWeb</a>,
+				<a href="https://www.atlassian.com/software/fisheye/overview">FishEye</a></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Tools: Code Review</h2>
+		<ul>
+			<li>Precommit: do not merge changes unless reviewed</li>
+			<li>Postcommit: first merge changes, then inspect them</li>
+			<li>Precommit examples: GitHub's pull requests,
+			  <a href="https://www.gerritcodereview.com/">Gerrit</a> (open source)</li>
+			<li>Postcommit examples: <a href="https://www.atlassian.com/software/crucible/overview">Crucible</a>
+				(expensive for small teams),
+			  <a href="https://www.jetbrains.com/upsource/">Upsource</a></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Example: Gerrit+Jenkins Workflow</h2>
+		<img src="pictures/jenkins_gerrit.jpg" id="jg">
+		<style>
+    #jg {
+			width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+			display: table;
+		}
+		</style>
+	</div></section>
 	<section class="slide"><div>
 		<h2>Next steps</h2>
 		<ul>
