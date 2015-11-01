@@ -20,17 +20,262 @@
 		<img src="pictures/qrcode.png" id="qr">
 	</div></section>
 	<section class="slide"><div>
-		<h2></h2>
+		<h2>What is node.js?</h2>
+		<img src="pictures/nodejs.svg" style="float: right;">
 		<ul>
-			
+			<li>General-purpose Javascript based on
+				<a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)">v8</a>
+				engine</li>
+			<li>Backed by Joyent company</li>
+			<li>Appeared in 2009</li>
+			<li>Cross-platform</li>
 		</ul>
+		<a href="https://nodejs.org/en/">Official site</a>
+		<ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Installation</h2>
+		<ul>
+			<li>Ubuntu: <code>sudo apt-get install nodejs nodejs-legacy</code></li>
+			<li>MacOSX: <code>brew install node</code></li>
+			<li>Windows: <code>choco install nodejs</code></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Example</h2>
+		<code>hello.js</code>:
+		<pre>
+			<code>console.log("hello, world");</code>
+		</pre>
+		<code>node hello.js</code>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Asynchronous execution in node.js</h2>
+		<ul id="async-banner">
+			<li>No threads</li>
+			<li>No blocking calls</li>
+		</ul>
+    <pre class="slim">
+<code>while (true) {</code>
+<code>  process events;</code>
+<code>}</code>
+		</pre>
+		<p class="slim">Example of a blocking call:</p>
+		<pre class="slim">
+			<code>contents = file.read();</code>
+			<code style="color: green;">next line will be executed after the file is read</code>
+		</pre>
+		<p class="slim">Example of a non-blocking call:</p>
+		<pre>
+			<code>file.read(function(contents) { ... });</code>
+			<code style="color: red;">next line will be executed at once, without waiting</code>
+		</pre>
+  <style>
+	#async-banner {
+		float: right;
+		margin-right: 20%;
+	}
+	.slim {
+		margin-bottom: 10px !important;
+	}
+	</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Globals</h2>
+		<a href="https://nodejs.org/api/globals.html">Documentation on global objects</a>
+		<ul>
+			<li><code>globals</code> - global namespace (mainly used for writing)</li>
+			<li><code>process</code> - current process instance</li>
+			<li><code>console</code> - similar to browsers, logging</li>
+			<li><code>require</code>, <code>module</code>, <code>exports</code> - import system</li>
+			<li><code>setTimeout</code>, <code>setInterval</code> and friends</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Events</h2>
+		<a href="https://nodejs.org/api/events.html">Documentation on global objects</a>
+		<ul>
+			<li>Placeholder</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Buffers</h2>
+		<a href="https://nodejs.org/api/buffer.html">Documentation on global objects</a>
+		<ul>
+			<li>Placeholder</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>File system</h2>
+		<a href="https://nodejs.org/api/fs.html">Documentation on global objects</a>
+		<ul>
+			<li>Placeholder</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Exceptions</h2>
+		<a href="https://nodejs.org/api/errors.html">Documentation on global objects</a>
+		<ul>
+			<li>Placeholder</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Debugging</h2>
+		<a href="https://nodejs.org/api/debugger.html">Documentation on global objects</a>
+		<ul>
+			<li>Placeholder</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Import system</h2>
+		<a href="https://nodejs.org/api/modules.html">Documentation on modules</a><br>
+		<p class="slim"><code>foo.js</code>:</p>
+		<pre class="slim">
+			<code>exports.jack = "the sparrow";</code>
+		</pre>
+		<p class="slim"><code>bar.js</code>:</p>
+		<pre class="slim">
+			<code>var foo = require("./foo.js");</code>
+			<code>console.log(foo.jack);</code>
+		</pre>
+		<code>./</code> is important! Without it, the module is considered to be either
+		a built-in or exist in <a href="https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders">
+			node_modules</a>.
+	</div></section>
+	<section class="slide"><div>
+		<h2>Importing packages</h2>
+		<a href="https://nodejs.org/api/modules.html#modules_folders_as_modules">Documentation on package import</a>
+		There are 3 ways to make node.js treat a folder as a module:
+		<ol>
+			<li>Define <code>package.json</code> with <code>main</code> pointing to the
+				actual file to import</li>
+			<li><code>index.js</code> is probed automatically</li>
+			<li><code>index.node</code> is probed automatically</li>
+		</ol>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Node package manager</h2>
+		<a href="https://www.npmjs.com/">Official site</a>
+		<img src="https://www.npmjs.com/static/images/npm-logo.svg" id="npm-logo">
+		<ul>
+			<li>Installed with node.js</li>
+			<li>More than 200 000 packages are available</li>
+			<li>High code reusability</li>
+			<li>Tree <code>node_modules</code> structure (npm v3 is about to change this)</li>
+			<li>Reads metadata from <code>package.json</code></li>
+		</ul>
+		<pre>
+			<code>npm install &lt;name&gt;</code>
+			<code>npm uninstall &lt;name&gt;</code>
+			<code>npm search &lt;name&gt;</code>
+		</pre>
+		<style>
+    #npm-logo {
+			float: right;
+			width: 200px;
+		}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>package.json</h2>
+		<a href="https://docs.npmjs.com/files/package.json">Documentation</a>
+		<ul>
+			<li><code>npm install</code> reads <code>package.json</code> in the current
+			directory and installs <em>dependencies</em> and <em>devDependencies</em> to
+			<code>node_modules</code> in the current directory</li>
+      <li>Fields like <em>name</em>, <em>description</em> are used for package export
+			to a repository</li>
+			<li><em>version</em> syntax is very flexible and relies on
+				<a href="https://docs.npmjs.com/misc/semver">semver</a></li>
+			<li><em>bin</em> allows setting CLI entry points</li>
+			<li><em>scripts</em> allows setting local entry points (<code>npm run ...</code>)</li>
+			<li><code>package.json</code> can be created interactively using <code>npm init</code></li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Bower package manager</h2>
+		<a href="http://bower.io/">Official site</a>
+		<ul>
+			<li>Specific to frontend</li>
+			<li>More than 40 000 packages</li>
+			<li>Fetches files to <code>bower_components</code></li>
+			<li>Reads metadata from <code>bower.json</code></li>
+		</ul>
+		<pre>
+			<code>bower install &lt;name&gt;</code>
+			<code>bower uninstall &lt;name&gt;</code>
+			<code>bower search &lt;name&gt;</code>
+		</pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Gulp</h2>
+		<img src="pictures/gulp.svg" style="float: right; width: 100px;">
+		<a href="http://gulpjs.com/">Official site</a>
+		<ul>
+			<li>Frontend build system</li>
+			<li>Similar to <code>make</code>, the build definition is read from <code>gulpfile.js</code></li>
+			<li>Has about 2000 plugins</li>
+			<li>Employs a streaming architecture with small memory footprint</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Build pipeline story</h2>
+		<div id="local-gulp">
+			<p>package.json:</p>
+			<pre class="slim" style="font-size: 80%;">
+...
+<code>"scripts": {</code>
+<code>  "gulp": "gulp"</code>
+<code>},</code>
+...
+			</pre>
+		</div>
+		<ul>
+			<li>Select the desired processing tools</li>
+			<li>Find the corresponding Gulp plugins</li>
+			<li>Write rules in <code>gulpfile.js</code> and specify devDependencies in <code>package.json</code></li>
+			<li><code>npm run gulp</code> does the magic</li>
+		</ul>
+		<style>
+    #local-gulp {
+			display: flex;
+			align-items: center;
+		}
+		#local-gulp > p {
+			margin-right: 100px;
+		}
+		#local-gulp > * {
+			margin-bottom: 0 !important;
+		}
+		</style>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Project idea</h2>
+		<p>Make the same as <a href="http://npm.anvaka.com/#/view/2d/gulp">npm dependency visualization</a> but for Gulp.</p>
+    <p>Similar: <a href="https://github.com/pavlov99/gulp-graph-tasks">gulp-graph-tasks</a>. We can do better!</p>
+    <p>Tip: use <code>gulp --tasks-json</code></p>
+		<p>Tip: do not bind to Gulp (use independent intermediate representation), so that the code
+		can be reused for other languages (Python, Go, etc.)</p>
+		<p>Hint: do not forget about <a href="https://github.com/mbostock/d3/wiki/Gallery">d3.js</a></p>
 	</div></section>
 
 	<section class="slide"><div>
 		<h2>Next steps</h2>
 		<ul>
-      <li>Pass the <a href="http://d-i-s-c.com.ua/work/?p=disc">test</a></li>
-			<li>Try to apply some of the described tools in your project</li>
+      <li>Pass interactive node.js tutorials:
+				<a href="https://www.codeschool.com/courses/real-time-web-with-node-js">1</a>,
+			<a href="http://nodeschool.io/ru/">2</a>, <a href="https://github.com/workshopper/learnyounode">3</a></li>
+			<li>Watch videos: <a href="http://nodetuts.com/series/asynchronous-programming.html">1</a>,
+				<a href="http://nodecasts.net/">2</a>,
+				<a href="https://ilovecoding.org/courses/learn-node-js-in-a-week/">3</a></li>
+			<li>Read books: <a href="http://visionmedia.github.io/masteringnode/">1</a>,
+			<a href="http://nodebeginner.org/">2</a>,
+			<a href="http://chimera.labs.oreilly.com/books/1234000001808/index.html">3</a></li>
+			<li>Download cheatsheet: <a href="https://gist.github.com/LeCoupa/985b82968d8285987dc3">1</a>,
+			<a href="http://overapi.com/nodejs/">2</a></li>
+			<li>Pass Gulp tutorials: <a href="http://leveluptuts.com/tutorials/learning-gulp">1</a>,
+			<a href="https://travismaynard.com/writing/getting-started-with-gulp">2</a>,
+		<a href="http://www.zell-weekeat.com/gulp-tutorial/">3</a></li>
 			<li>Continue to <a href="../08_frameworks/index.html">Frontend frameworks</a></li>
 		</ul>
 	</div></section>
