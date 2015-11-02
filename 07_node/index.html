@@ -93,23 +93,42 @@
 	</div></section>
 	<section class="slide"><div>
 		<h2>Events</h2>
-		<a href="https://nodejs.org/api/events.html">Documentation on global objects</a>
+		<a href="https://nodejs.org/api/events.html">Documentation on events</a>
 		<ul>
-			<li>Placeholder</li>
+			<li><code>EventEmitter</code> - building block of the events machinery
+<pre class="slim">
+<code>var EventEmitter = require('events');</code>
+<code>let emitter = new EventEmitter();</code>
+</pre>
+			</li>
+			<li><code>emitter.on()</code> adds event handlers</li>
+			<li><code>emitter.emit()</code> triggers events</li>
+			<li><code>emitter.removeListener()</code> - removes event handlers</li>
 		</ul>
+		<a href="http://www.hacksparrow.com/node-js-eventemitter-tutorial.html">Example of deriving from EventEmitter</a>
 	</div></section>
 	<section class="slide"><div>
 		<h2>Buffers</h2>
-		<a href="https://nodejs.org/api/buffer.html">Documentation on global objects</a>
+		<a href="https://nodejs.org/api/buffer.html">Documentation on buffers</a>
 		<ul>
-			<li>Placeholder</li>
+			<li><code>Buffer</code> is binary data representation</li>
+			<li>Buffers have an <code>Array</code> interface, with <code>slice</code>, <code>length</code>, etc.</li>
+			<li>Can transform into strings (encoding must be specified)</li>
+			<li>Unsigned and signed integers of size 8, 16 and 32 bits and of different endiannes can be read and write</li>
+			<li style="font-size: 75%;">In order to avoid the garbage collection overhead of creating many individually allocated Buffers, by default allocations under 4KB are sliced from a single larger allocated object. This approach improves both performance and memory usage since v8 does not need to track and cleanup as many Persistent objects.</li>
 		</ul>
 	</div></section>
 	<section class="slide"><div>
 		<h2>File system</h2>
-		<a href="https://nodejs.org/api/fs.html">Documentation on global objects</a>
+		<a href="https://nodejs.org/api/fs.html">Documentation on fs</a>
 		<ul>
-			<li>Placeholder</li>
+			<li><pre style="display: inline;"><code style="display: inline;">var fs = require('fs');</code></pre></li>
+			<li>There are asynchronous (by default) and synchronous (<code>*Sync</code>) function versions</li>
+			<li>Function names are similar to typical UNIX commands and stdlib.h</li>
+			<li>Files can be read and written in streaming mode with events support</li>
+			<li><code>fs.FSWatcher</code> uses
+				<a href="https://en.wikipedia.org/wiki/Inotify">inotify</a> /
+				<a href="https://en.wikipedia.org/wiki/FSEvents">FSEvents</a> mechanisms to deliver file system change events</li>
 		</ul>
 	</div></section>
 	<section class="slide"><div>
