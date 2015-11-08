@@ -135,14 +135,29 @@
 		<h2>Exceptions</h2>
 		<a href="https://nodejs.org/api/errors.html">Documentation on global objects</a>
 		<ul>
-			<li>Placeholder</li>
+			<li>All exceptions are instances of
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></li>
+      <li>There are a few predefined error classes available</li>
+			<li><code>stack</code> property allows finding the place where the exception was thrown</li>
+			<li>Exception handling in asynchronous mode is different than in synchronous mode</li>
+			<li>There is a convention of <code>"error"</code> event for pipes</li>
 		</ul>
 	</div></section>
 	<section class="slide"><div>
 		<h2>Debugging</h2>
 		<a href="https://nodejs.org/api/debugger.html">Documentation on global objects</a>
 		<ul>
-			<li>Placeholder</li>
+			<li><code>node debug ...</code> allows interactive debugging of the script; alternatively, send <code>SIGUSR1</code> signal to already running script
+				and use <code>&#8209;p&nbsp;&lt;PID&gt;</code> switch</li>
+			<li>Insert <code>debugger</code> into your script to hit a breakpoint there</li>
+			<li>Command syntax is similar to <a href="https://www.gnu.org/software/gdb/">GNU debugger (gdb)</a>
+				<ul style="font-size: 80%;">
+					<li><code>bt</code> - print the backtrace</li>
+					<li><code>c</code> - continue execution, <code>restart</code> - relaunch the script</li>
+					<li><code>n</code> - step next, <code>s</code> - step in, <code>o</code> - step out</li>
+					<li><code>watch(expr)</code> - inspect the expression, be notified on changes</li>
+				</ul>
+			</li>
 		</ul>
 	</div></section>
 	<section class="slide"><div>
