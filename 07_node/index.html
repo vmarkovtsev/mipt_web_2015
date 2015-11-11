@@ -114,7 +114,7 @@
 			<li><code>Buffer</code> is binary data representation</li>
 			<li>Buffers have an <code>Array</code> interface, with <code>slice</code>, <code>length</code>, etc.</li>
 			<li>Can transform into strings (encoding must be specified)</li>
-			<li>Unsigned and signed integers of size 8, 16 and 32 bits and of different endiannes can be read and write</li>
+			<li>Unsigned and signed integers of size 8, 16 and 32 bits and of different endianness can be read and write</li>
 			<li style="font-size: 75%;">In order to avoid the garbage collection overhead of creating many individually allocated Buffers, by default allocations under 4KB are sliced from a single larger allocated object. This approach improves both performance and memory usage since v8 does not need to track and cleanup as many Persistent objects.</li>
 		</ul>
 	</div></section>
@@ -173,7 +173,7 @@
 			<code>console.log(foo.jack);</code>
 		</pre>
 		<code>./</code> is important! Without it, the module is considered to be either
-		a built-in or exist in <a href="https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders">
+		a built-in or existing in <a href="https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders">
 			node_modules</a>.
 	</div></section>
 	<section class="slide"><div>
