@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Web Programming @ MIPT - 08</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="../common/shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" href="../common/shower/cover.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Web Programming @ MIPT, 2015-2016</h1>
+		<p>Markovtsev Vadim</p>
+	</header>
+	<section class="slide cover" id="cover"><div>
+		<img src="pictures/cover.jpg" alt="">
+		<h2>Frontend frameworks</h2>
+		<p>Web Programming @ MIPT, 2015-2016</a></p>
+		<img src="pictures/qrcode.png" id="qr">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Plan</h2>
+		<ul>
+			<li>Theory</li>
+			<li>Angular.js</li>
+			<li>Backbone.js</li>
+			<li>React</li>
+			<li>Ember</li>
+			<li>Polymer</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Architecture and coding patterns</h2>
+		<ul>
+			<li>Quite useless to explain, because they must be understood the other way</li>
+			<li>"Must", "should", "do" do not mean you <em>have to</em> obey - there are
+				always exclusions, though it is an art to realize them</li>
+			<li>Can be asked on interviews, so it can be reasonable to remember them</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>DRY</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">Don't repeat yourself</a>
+				principle</li>
+			<li>Every piece of knowledge must have a single, unambiguous, authoritative
+				representation within a system</li>
+			<li>No hardcode</li>
+			<li>No duplicated code</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>KISS</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/KISS_principle">Keep it simple, stupid</a>
+				principle</li>
+			<li>Extremely hard to conform for beginners, e.g.
+				<a href="http://debuggable.com/posts/quickie-kissing-is-for-the-experienced:482b9a1e-ad2c-402c-890e-1ee34834cda3">
+					KISSing is for experienced</a></li>
+			<li>Classic examples:
+				<ul>
+					<li>C++: "template hell"</li>
+					<li>Python: monkey patching; "metaclass hell"</li>
+					<li>Fear of deleting the old code</li>
+				</ul>
+			</li>
+			<li>"Make everything as simple as possible, but not simpler"</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>YAGNI</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it">You aren't gonna need it</a>
+				principle</li>
+			<li>Implement things when you actually need them, never when you just foresee
+				that you need them</li>
+			<li>Do the simplest thing that could possibly work</li>
+			<li>Requires solid implementation: working continuous integration, good
+				unit test coverage - otherwise don't even try to follow it</li>
+			<li>Is not applicable to some areas, e.g. scientific, healthcare, avionics, etc.</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>SOLID</h2>
+		<a href="https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">The collection of 5 principles</a>:
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Open/closed_principle">Open/closed</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface segregation</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency inversion</a></li>
+			<li>Some of these can introduce too much overhead, some are not adapted to dynamic languages</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Dependency Injection</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/Dependency_injection#Without_dependency_injection">Description</a></li>
+			<li>Part of Onversion of Control:
+				<a href="https://en.wikipedia.org/wiki/Inversion_of_control">
+					don't call us, we'll call you</a></li>
+			<li>Comes naturally from good test design</li>
+		</ul>
+		<ul class="pros">
+		  <li>Improves the abstractions</li>
+		  <li>Makes applications more configurable and hackable</li>
+		</ul>
+		<ul class="cons">
+			<li>Harder to debug / trace</li>
+			<li>Much of the logic goes to configuration files</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Data bindings</h2>
+		<a href="https://en.wikipedia.org/wiki/UI_data_binding">Description</a>
+		<div id="db">
+			<img src="pictures/owdb.png">
+			<img src="pictures/twdb.png">
+		</div>
+		<style>
+		#db {
+			display: flex;
+		}
+		#db > img {
+			width: 400px;
+			height: 400px;
+			object-fit: contain;
+		}
+		#db > img:first-of-type {
+			width: 350px;
+			margin-right: 50px;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Model-View-Controller</h2>
+		<img src="pictures/mvc.svg" id="mvc">
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Description</a></li>
+			<li>The way to separate business logic from user interaction</li>
+			<li>Examples: <a href="http://www.asp.net/mvc">ASP.NET MVC</a>,
+				<a href="http://rubyonrails.org/">RoR</a>,
+				<a href="https://www.djangoproject.com/">Django</a></li>
+			<li>Appeared in 1970-s</li>
+		</ul>
+		<style>
+		#mvc {
+			float: right;
+			height: 400px;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Model-View-Presenter</h2>
+		<img src="pictures/mvp.png" id="mvp">
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">Description</a></li>
+			<li>Examples: <a href="https://en.wikipedia.org/wiki/Google_Web_Toolkit">GWT</a></li>
+			<li>Appeared in 1990-s</li>
+		</ul>
+		<style>
+			#mvp {
+				float: right;
+				width: 400px;
+			}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Model-View-ViewModel</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/Model_View_ViewModel">Description</a></li>
+			<li>Built on top of data bindings</li>
+			<li>Appeared in 2000-s in <a href="https://en.wikipedia.org/wiki/Windows_Presentation_Foundation">WPF</a></li>
+		</ul>
+		<img src="pictures/mvvm.png" id="mvvm">
+		<style>
+		#mvvm {
+			width: 800px;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Which of those three is best?</h2>
+		<ul>
+			<li><a href="http://habrahabr.ru/post/151219/">Article</a></li>
+			<li><a href="http://habrahabr.ru/post/215605/">Comparison</a></li>
+			<li>Usually, design decisions are dictated by technical implementation details.</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Frameworks: pros and cons</h2>
+		<ul class="pros">
+			<li>Don't reinvent the wheel every time</li>
+			<li>Free support and help</li>
+			<li>Many features</li>
+		</ul>
+		<ul class="cons">
+			<li>Overhead; &lt;noscript&gt; failure</li>
+			<li>Time to learn</li>
+			<li>Wrong usage</li>
+		</ul>
+		<style>
+		.pros > li::before, .cons > li::before {
+			margin-right: 0.5em;
+  		font-family: FontAwesome;
+		}
+		.pros > li::before {
+			content: "\f067" !important;
+			color: green !important;
+		}
+		.cons > li::before {
+			content: "\f068" !important;
+			color: red !important;
+		}
+		</style>
+	</div></section>
+
+	<style>
+		.logo {
+			float: right;
+			width: 200px;
+		}
+	</style>
+
+	<section class="slide"><div>
+		<h2>AngularJS</h2>
+		<img src="pictures/angular.png" class="logo">
+		<ul>
+			<li><a href="https://angularjs.org/">Official site</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Backbone.js</h2>
+		<img src="pictures/backbone.png" class="logo">
+		<ul>
+			<li><a href="http://backbonejs.org/">Official site</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Ember</h2>
+		<img src="pictures/ember.png" class="logo">
+		<ul>
+			<li><a href="http://emberjs.com/">Official site</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>React</h2>
+		<img src="pictures/react.svg" class="logo">
+		<ul>
+			<li><a href="https://facebook.github.io/react/">Official site</a></li>
+			<li>"V" in MVP</li>
+			<li>Used by: <a href="http://imgur.com/">imgur</a>,
+				<a href="https://www.netflix.com">Netflix</a>,
+				<a href="https://www.airbnb.com/">AirBnB</a></li>
+			<li>One-way data binding</li>
+			<li>Introduces <a href="https://facebook.github.io/react/docs/jsx-in-depth.html">JSX</a></li>
+			<li>Cleverly uses <a href="https://en.wikipedia.org/wiki/React_(JavaScript_library)#Virtual_DOM">virtual DOM</a> diffing</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>React</h2>
+		<p data-height="354" data-theme-id="0" data-slug-hash="BnzKx" data-default-tab="result" data-user="mfunkie" class='codepen'>See the Pen <a href='http://codepen.io/mfunkie/pen/BnzKx/'>React To-Do List JSX</a> by Mark Funk (<a href='http://codepen.io/mfunkie'>@mfunkie</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>So which one to choose?</h2>
+		<ul>
+			<li><a href="https://gist.github.com/makmanalp/9b7f50aa16d21c2f9d37">GitHub gist</a></li>
+			<li><a href="https://www.airpair.com/js/javascript-framework-comparison">Another comparison</a></li>
+			<li><a href="http://smashingboxes.com/ideas/choosing-a-front-end-framework-angular-ember-react">Another comparison</a></li>
+			<li><a href="https://www.youtube.com/watch?v=bODntw206ZQ">Video</a></li>
+			<li>You should try all before rolling any to production</li>
+			<li>Check their popularity with <a href="http://libscore.com/">libscore</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Polymer</h2>
+		<img src="pictures/polymer.svg" class="logo">
+		<ul>
+			<li><a href="https://www.polymer-project.org/1.0/">Official site</a></li>
+			<li>Serves to DRY</li>
+			<li>See <a href="https://elements.polymer-project.org/">the list of available components</a></li>
+		</ul>
+		<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html"><span class="com">&lt;!-- ... = //cdn.rawgit.com/download/polymer-cdn/1.1.4/lib --&gt;</span>
+<span class="com">&lt;!-- Polyfill Web Components support for older browsers --&gt;</span><span class="pln">
+</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">".../webcomponentsjs/webcomponents-lite.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+</span><span class="com">&lt;!-- Import element --&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"import"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">".../google-map/google-map.html"</span><span class="tag">&gt;</span><span class="pln">
+</span><span class="com">&lt;!-- Use element --&gt;</span><span class="pln">
+</span><span class="tag">&lt;google-map</span><span class="pln"> </span><span class="atn">latitude</span><span class="pun">=</span><span class="atv">"55.930194"</span><span class="pln"> </span><span class="atn">longitude</span><span class="pun">=</span><span class="atv">"37.517952"</span><span class="tag">&gt;&lt;/google-map&gt;</span></code>
+		</pre>
+		<style>
+		.prettyprint {
+			font-size: 75%;
+		}
+		.prettyprint .tag {
+		  color: #00838f;
+		}
+		.prettyprint .com {
+		  color: #d81b60;
+		}
+		.prettyprint .atn {
+			color: #455a64
+		}
+		.prettyprint .atv {
+		  color: #689f38;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div style="height: 485px;">
+		<h2>Polymer</h2>
+		<link rel="import" href="//cdn.rawgit.com/download/polymer-cdn/1.1.4/lib/google-map/google-map.html">
+		<google-map latitude="55.930194" longitude="37.517952" zoom=17></google-map>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Next steps</h2>
+		<ul>
+			<li>Read <a href="http://www.codeproject.com/Articles/869712/AngularJS">this good article</a></li>
+      <li>Pick the framework you like</li>
+			<li>Pass the corresponding tutorials, read books</li>
+			<li>Try to use it in your project</li>
+			<li>Continue to <a href="../09_media/index.html">Media &amp; design</a></li>
+		</ul>
+	</div></section>
+	<p class="badge"><a href="https://github.com/vmarkovtsev/mipt_web_2015">View on Github</a></p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="../common/shower/shower.min.js"></script>
+</body>
+</html>
