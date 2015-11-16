@@ -26,9 +26,9 @@
 		<ul>
 			<li>Theory</li>
 			<li>Angular.js</li>
+			<li>Ember</li>
 			<li>Backbone.js</li>
 			<li>React</li>
-			<li>Ember</li>
 			<li>Polymer</li>
 		</ul>
 	</div></section>
@@ -203,6 +203,34 @@
 	</div></section>
 
 	<section class="slide"><div>
+		<h2>Single-page application</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/Single-page_application">Concept</a></li>
+			<li>Main idea: completely abandon the original way websites are created and use
+			dynamic communication with the web server (usualy, the corresponding
+			protocol is called API)</li>
+			<li>Superior ("responsive") user experience</li>
+			<li>Slower to develop, harder to maintain</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div id="rails">
+		<h2>Single-page application</h2>
+		<a href="https://docs.google.com/presentation/d/1afMLTCpRxhJpurQ97VBHCZkLbR1TEsRnd3yyxuSQ5YY/edit">Source</a>
+		<img src="pictures/rails.png">
+		<style>
+		#rails > a {
+			position: absolute;
+			left: 150px;
+		}
+		#rails > img {
+			width: 780px;
+			object-fit: contain;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
 		<h2>Frameworks: pros and cons</h2>
 		<ul class="pros">
 			<li>Don't reinvent the wheel every time</li>
@@ -246,19 +274,42 @@
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Backbone.js</h2>
-		<img src="pictures/backbone.png" class="logo">
-		<ul>
-			<li><a href="http://backbonejs.org/">Official site</a></li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
 		<h2>Ember</h2>
 		<img src="pictures/ember.png" class="logo">
 		<ul>
 			<li><a href="http://emberjs.com/">Official site</a></li>
+			<li>Many powerful features: CLI, ORM, Inspector, Handlebars templates</li>
+			<li>MVC, two-way data binding</li>
+			<li>Usable for building mobile apps</li>
+			<li>Began in 2011</li>
+			<li>Example sites: <a href="https://www.yahoo.com/">Yahoo</a>,
+		      <a href="http://www.discourse.org/">Discourse</a>,
+		      <a href="https://www.zendesk.com/">ZenDesk</a></li>
+			<li>Tutorials: <a href="http://ember.vicramon.com/">1</a>,
+			<a href="http://thetechcofounder.com/getting-started-with-ember-js-using-ember-cli/">2</a></li>
 		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Backbone.js</h2>
+		<img src="pictures/backbone.png" class="logo">
+		<ul>
+			<li><a href="http://backbonejs.org/">Official site</a></li>
+			<li>Minimalistic, compact, does not force anything</li>
+			<li>MVP, one-way data binding</li>
+			<li>Began in 2010</li>
+			<li>Example sites: <a href="https://www.airbnb.com/">AirBnB</a>,
+			  <a href="https://foursquare.com/">Foursquare</a>,
+		    <a href="https://trello.com/">Trello</a></li>
+			<li>Tutorials: <a href="http://adrianmejia.com/blog/2012/09/11/backbone-dot-js-for-absolute-beginners-getting-started/">1</a>,
+				<a href="https://backbonetutorials.com/">2</a>, <a href="http://www.codeproject.com/Articles/795965/BackBone-Tutorial-Part-Introduction-to-Backbone-Js">3</a></li>
+		</ul>
+		<img src="http://backbonejs.org/docs/images/intro-model-view.svg" id="backbone">
+		<style>
+		#backbone {
+			width: 800px;
+		}
+		</style>
 	</div></section>
 
 	<section class="slide"><div>
@@ -266,13 +317,17 @@
 		<img src="pictures/react.svg" class="logo">
 		<ul>
 			<li><a href="https://facebook.github.io/react/">Official site</a></li>
-			<li>"V" in MVP</li>
-			<li>Used by: <a href="http://imgur.com/">imgur</a>,
-				<a href="https://www.netflix.com">Netflix</a>,
-				<a href="https://www.airbnb.com/">AirBnB</a></li>
-			<li>One-way data binding</li>
+			<li>"V" in MVP, one-way data binding</li>
 			<li>Introduces <a href="https://facebook.github.io/react/docs/jsx-in-depth.html">JSX</a></li>
 			<li>Cleverly uses <a href="https://en.wikipedia.org/wiki/React_(JavaScript_library)#Virtual_DOM">virtual DOM</a> diffing</li>
+			<li>Began in 2013</li>
+			<li>Examples: <a href="http://imgur.com/">imgur</a>,
+				<a href="https://www.netflix.com">Netflix</a>,
+				<a href="https://www.airbnb.com/">AirBnB</a></li>
+			<li>Tutorials: <a href="https://facebook.github.io/react/docs/tutorial.html">1</a>,
+			    <a href="https://egghead.io/series/react-fundamentals">2</a>,
+				  <a href="https://scotch.io/tutorials/learning-react-getting-started-and-concepts">3</a>,
+			    <a href="https://www.codementor.io/learn-reactjs">4</a></li>
 		</ul>
 	</div></section>
 
