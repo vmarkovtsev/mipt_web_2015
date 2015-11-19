@@ -144,6 +144,100 @@
 		</ul>
 	</div></section>
 	<section class="slide"><div>
+		<h2>Project evaluation criteria - 2015</h2>
+		<div id="evaluation">
+			<span>Σ=</span>
+			<span>3</span>
+			<span class="plus">+</span>
+			<span class="extra">1</span>
+			<span class="plus">+</span>
+			<span class="extra">1</span>
+			<span class="plus">+</span>
+			<span class="extra">1</span>
+			<span class="plus">+</span>
+			<span class="extra">1</span>
+			<span class="plus">+</span>
+			<span class="extra">1</span>
+			<span class="plus">+</span>
+			<span class="extra">1</span>
+			<span class="plus">+</span>
+			<span class="extra">1</span>
+		</div>
+		<span id="star">*(Haml, Slim, Jade), (SASS, Stylus), (ES6, CoffeeScript)</span>
+		<style>
+		#star {
+			position: absolute;
+			bottom: 50px;
+		}
+		#evaluation {
+			display: flex;
+			align-items: center;
+  		justify-content: center;
+			height: 100%;
+			font-size: 380%;
+		}
+		.plus {
+			color: gray;
+		}
+		.extra {
+			-webkit-text-stroke: 1px gray;
+		}
+		.extra::before {
+			font-size: 50%;
+			position: absolute;
+			transform: translatey(-80px) rotate(-30deg);
+		}
+		.extra:nth-of-type(4) {
+			color: #ff3232;
+		}
+		.extra:nth-of-type(4)::before {
+			content: "I am brave";
+		}
+		.extra:nth-of-type(6) {
+			color: #ff5f3e;
+		}
+		.extra:nth-of-type(6)::before {
+			content: "GitHub / Heroku";
+			transform: translate(-15px, -105px) rotate(-30deg);
+		}
+		.extra:nth-of-type(8) {
+			color: #ffb756;
+		}
+		.extra:nth-of-type(8)::before {
+			content: "Any 2 of 3*";
+			transform: translatey(-85px) rotate(-30deg);
+		}
+		.extra:nth-of-type(10) {
+			color: #fff767;
+		}
+		.extra:nth-of-type(10)::before {
+			content: "Media optimization";
+			transform: translate(-15px, -125px) rotate(-30deg);
+		}
+		.extra:nth-of-type(12) {
+			color: #e3fb72;
+		}
+		.extra:nth-of-type(12)::before {
+			content: "Gulp";
+			transform: translatey(-45px) rotate(-30deg);
+		}
+		.extra:nth-of-type(14) {
+			color: #bcfd7f;
+		}
+		.extra:nth-of-type(14)::before {
+			content: "Framework";
+			transform: translatey(-85px) rotate(-30deg);
+		}
+		.extra:nth-of-type(16) {
+			color: #9eff89;
+		}
+		.extra:nth-of-type(16)::before {
+			content: "Wow";
+			transform: translatey(-50px) rotate(-30deg);
+		}
+		</style>
+	</div></section>
+	<section class="slide"><div>
 		<h2>Next steps</h2>
 		<ul>
 			<li>Continue to <a href="../01_unix/index.html">UNIX crash course</a></li>
