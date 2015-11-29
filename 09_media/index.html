@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Web Programming @ MIPT - 09</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="../common/shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" href="../common/shower/cover.css">
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Web Programming @ MIPT, 2015-2016</h1>
+		<p>Markovtsev Vadim</p>
+	</header>
+	<section class="slide cover" id="cover"><div>
+		<img src="pictures/cover.jpg" alt="">
+		<h2>Media&amp;design</h2>
+		<p>Web Programming @ MIPT, 2015-2016</a></p>
+		<img src="pictures/qrcode.png" id="qr">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>TODO</h2>
+		<ul>
+			<li>picture, media set</li>
+			<li>@media</li>
+			<li>GIF</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Image merging</h2>
+		Advantages: single HTTP request, smaller size (in some cases)
+		<ul>
+			<li>SVG
+				<ul>
+					<li><a href="https://github.com/hofmannsven/SVG-Stacking">Stacking</a></li>
+					<li><a href="https://css-tricks.com/svg-use-external-source/">&lt;use&gt;</a></li>
+					<li><a href="https://github.com/FontCustom/fontcustom/">FontCustom</a></li>
+				</ul>
+			</li>
+			<li>PNG, JPG
+				<ul>
+					<li><a href="https://css-tricks.com/css-sprites/">CSS sprites</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>PNG optimization</h2>
+		<ul>
+			<li><a href="http://ucnv.github.io/pnglitch/">pnglitch</a> helps to understand how PNG works</li>
+			<li><a href="http://optipng.sourceforge.net/">optipng</a> - discards garbage and
+			applies multiple brute force compression attempts with different parameters and with
+		the best Zlib codec</li>
+			<li><a href="https://pngquant.org/">pngquant</a> applies invisible lossy image
+			changes to enable dramatically better compression; generates the best palette.</li>
+			<li><code>npm install optipng pngquant</code></li>
+			<li>Expected impact: 20-70%</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Adobe Flash (.swf)</h2>
+		<img src="pictures/flash.jpg" id="flash">
+		<style>
+		#flash {
+			width: 800px;
+			margin-top: 30px;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>SVG: drawing</h2>
+		<ul>
+			<li><a href="https://inkscape.org">Inkscape</a> - open source, GPL</li>
+			<li><a href="http://www.adobe.com/ru/products/illustrator.html">Adobe Illustrator</a> - proprietary</li>
+			<li>Tutorials (basics): <a href="http://www.w3schools.com/svg/">1</a>,
+				<a href="https://www.sitepoint.com/premium/courses/vector-graphics-from-scratch-51">2</a>,
+			  <a href="http://speckyboy.com/2009/04/28/35-tutorials-to-create-amazing-vector-graphics-using-inkscape/">3</a></li>
+			<li>"Trace bitmap" feature (e.g.,
+				<a href="https://inkscape.org/ru/doc/tracing/tutorial-tracing.html">Inkscape</a>)</li>
+		</ul>
+		<img src="https://inkscape.global.ssl.fastly.net/media/doc/tutorials/tracing/tracing-f02-en.svg.png">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>SVG optimization</h2>
+		<ul>
+			<li><a href="https://github.com/svg/svgo">svgo</a></li>
+			<li><code>npm install svgo</code></li>
+			<li>Applies transformations, removes garbage</li>
+			<li>Expected impact: 30-50%</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>JPEG optimization</h2>
+		<ul>
+			<li>Easy tool: <a href="http://ruhighload.com/post/jpegtran">jpegtran</a>: removes
+			EXIF, some other garbage, applies lossless transformations</li>
+			<li>Advanced techniques, such as
+				<a href="http://www.smashingmagazine.com/2009/07/clever-jpeg-optimization-techniques/">
+				described here</a>:
+				<ul>
+					<li>Targeting 8 pixels grid</li>
+					<li>Simplification of colors</li>
+				</ul>
+			</li>
+			<li>Expected impact: 1-20%</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Animated PNG</h2>
+		<ul>
+			<li>PNG format <a href="https://en.wikipedia.org/wiki/APNG">extension</a>
+				to allow GIF-like animation</li>
+			<li>Fallback to first frame on not supporting engines</li>
+			<li>Supported by all browsers except Chromium-derived and IE/Edge</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>webp</h2>
+		<ul>
+			<li>Advanced image compression format optimized for web</li>
+			<li><a href="https://developers.google.com/speed/webp/">Official site</a></li>
+			<li>Appeared in 2010, developed by Google</li>
+			<li>Similar to JPEG, but supports more features, such as transparency, animation, etc.</li>
+			<li>Claims to be much better, but in practice, not significantly</li>
+			<li>Supported only by Chromium-derived browsers</li>
+			<li>So the plan is to use APNG/webp for complex animations through
+				<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset">srcset</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>&lt;video&gt;: mp4</h2>
+		<ul>
+			<li><a href="http://www.webmproject.org/">Official site</a></li>
+			<li>Part of <a href="https://en.wikipedia.org/wiki/MPEG-4">MPEG-4</a></li>
+			<li>Proprietary, covered with patents and involves royalty payments</li>
+			<li>Video codec: <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">h.265</a>,
+			  <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">h.264</a></li>
+			<li>Audio codec: differs, usually
+				<a href="https://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a> and
+				<a href="https://en.wikipedia.org/wiki/Dolby_Digital">AC-3</a></li>
+			<li>Supported by all major browsers</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>&lt;video&gt;: webm</h2>
+		<ul>
+			<li><a href="http://www.webmproject.org/">Official site</a></li>
+			<li>Appeared in 2010, originally promoted by Google</li>
+			<li>Open source (BSD license)</li>
+			<li>Video codec: <a href="https://en.wikipedia.org/wiki/VP9">VP9</a> (
+				<a href="https://en.wikipedia.org/wiki/VP8">VP8</a> is the previous version,
+				VP10 is upcoming)</li>
+			<li>Audio codec: differs, usually
+				<a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a> and
+				<a href="https://en.wikipedia.org/wiki/Opus_(audio_format)">Opus</a></li>
+			<li>Supported by all major browsers except Safari and IE/Edge (Edge: in development)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>&lt;video&gt;: which format to choose?</h2>
+		<ul>
+			<li>Use <a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/source">&lt;source&gt;</a>:
+				<pre style="margin-bottom: 0;"><code>   &lt;video width="1920" height="1080" controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  &lt;source src="movie.webm" type="video/webm"&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
+			</li>
+			<li>Use <a href="https://www.ffmpeg.org/">ffmpeg</a> - LGPL engine which
+				supports both formats</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Typography</h2>
+		<a id="kerning" href="http://www.memecenter.com/fun/1066436/bad-kerning">
+			<img src="pictures/kerning.png"></a>
+		<ul>
+			<li><a href="http://webdesign.tutsplus.com/articles/choosing-the-right-font-a-practical-guide-to-typography-on-the-web--webdesign-15">Good introduction</a></li>
+			<li>Typical digital font is a complex system with vector or raster glyphs,
+				layout scripts, hints, different zoom adaptations, etc. Complexity examples:
+				<a href="http://web.archive.org/web/20130405005057/http://habrahabr.ru/post/112400/">1</a>,
+			<a href="http://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html">2</a></li>
+			<li>Fonts are divided into several categories called
+				<a href="https://en.wikipedia.org/wiki/Typeface">typefaces</a>, e.g.<br>
+				<span class="sans">Sans</span>, <span class="serif">Sans Serif</span>,
+			  <span class="mono">Monospace</span>, <span class="script">Script</span>,
+			  <span class="display">Display</span></li>
+			<li>In CSS, typefaces correspond to
+			<a href="https://developer.mozilla.org/ru/docs/Web/CSS/font-family">font-family</a>
+			and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face">@font-face</a></li>
+		</ul>
+		<style>
+		#kerning {
+			float: right;
+			margin-left: 10px;
+			text-decoration: none;
+			color: rgba(0,0,0,0);
+		}
+		.sans {
+			font-family: sans;
+		}
+		.serif {
+			font-family: sans-serif;
+		}
+		.mono {
+			font-family: monospace;
+		}
+		.script {
+			font-family: cursive;
+		}
+		.display {
+			font-family: fantasy;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Lorem ipsum</h2>
+		<ul>
+			<li>Default text placeholder: <a href="https://en.wikipedia.org/wiki/Lorem_ipsum">wiki</a></li>
+			<li>There many online generators, e.g. <a href="http://www.lipsum.com/">1</a>,
+			<a href="http://generator.lorem-ipsum.info/">2</a></li>
+		</ul>
+		<p style="font-size: 75%; line-height: 1;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse metus neque, scelerisque quis odio nec, volutpat elementum lectus. Proin ut volutpat tellus. Aenean fermentum, felis et blandit congue, nibh mauris vehicula ante, dapibus vulputate ipsum velit vestibulum odio. Duis nec efficitur quam, nec congue orci. Curabitur eleifend massa orci, vel sagittis odio vulputate et. Proin dignissim faucibus purus at sodales. Duis ultrices nec lorem vitae pretium. Etiam nec euismod felis, non eleifend massa. Etiam scelerisque tincidunt nibh, nec auctor velit ornare nec. Etiam tincidunt, urna in luctus aliquam, quam dui elementum ex, quis pulvinar nisi velit vel leo. Cras pulvinar aliquet orci, in posuere velit finibus eget.</p>
+	</div></section>
+
+
+	<section class="slide"><div>
+		<h2>Font formats</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/TrueType">TrueType</a> (.ttf)</li>
+			<li><a href="https://en.wikipedia.org/wiki/OpenType">OpenType</a> (.otf)</li>
+			<li><a href="https://en.wikipedia.org/wiki/Web_Open_Font_Format">Web Open Font Format</a> (.woff, .woff2)</li>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/SVG_fonts">SVG</a> (.svg) - DIY way</li>
+		</ul>
+		woff2 is the defacto standard.
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Accessing fonts</h2>
+		<ul>
+			<li><a href="https://www.google.com/fonts">Google Web Fonts</a> (free)</li>
+			<li><a href="http://www.fontsquirrel.com/">FontSquirrel</a> (free)</li>
+			<li><a href="http://www.dafont.com/">DaFont</a> (free)</li>
+			<li><a href="https://typekit.com/">TypeKit</a> (shop) and many others</li>
+			<li><a href="http://fontark.net/">Draw your own?</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Choosing fonts</h2>
+		<ul>
+			<li>See which others choose: <a href="https://www.typewolf.com/">1</a>,
+			<a href="http://www.awwwards.com/websites/typography/">2</a>,
+			<a href="http://www.intechnic.com/blog/top-50-best-examples-of-websites-using-typography/">3</a>,
+		  <a href="http://designmodo.com/websites-typography/">4</a></li>
+			<li><span class="helvetica">Helvetica is widely used everywhere</span> - this is a last resort.</li>
+			<li><span class="comic-sans">For goodness sake don't use Comic Sans</span>
+				(if you want it badly, choose <a href="http://comicneue.com/">Comic Neue</a>)</li>
+			<li><a href="http://lurkmore.to/%D0%A8%D1%80%D0%B8%D1%84%D1%82%D1%8B_%E2%80%94_%D0%B3%D0%BE%D0%B2%D0%BD%D0%BE">A dose of Russian memes</a></li>
+			<li><a href="http://julianhansen.com/files/infographiclarge_v2.png">So you need a typeface</a>,
+			<a href="http://ianli.com/synat/">web version</a></li>
+		</ul>
+		<style>
+		.helvetica {
+			font-family: helvetica;
+		}
+		@font-face {
+      font-family: "Comic Sans";
+      src: url("comic-sans.woff");
+    }
+		.comic-sans {
+			font-family: Comic Sans;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div id="faslide">
+		<h2><span>Iconic fonts</span></h2>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<ul>
+			<li><a href="https://fortawesome.github.io/Font-Awesome/">FontAwesome</a> - most famous icon set
+				<pre style="margin-bottom: 0;">
+					<code>      <i class="fa fa-university"></i> &lt;i class="fa fa-university"&gt;&lt;/i&gt;</code></pre>
+			</li>
+			<li><a href="http://fontello.com/">Fontello</a> - catalogue with many other open source sets</li>
+		</ul>
+		<style>
+		#faslide {
+			background-image: linear-gradient(
+	      rgba(255, 255, 255, 0.9),
+	      rgba(255, 255, 255, 0.9)
+	    ), url("pictures/fontawesome.png");
+			background-size: cover;
+		}
+		#faslide > h2 > span {
+			background-image: radial-gradient(
+	      rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.0)
+			);
+		}
+		#faslide > ul {
+			background-image: radial-gradient(
+	      rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.0)
+			);
+			display: inline-block;
+		}
+		.fa {
+			font-style: normal !important;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Next steps</h2>
+		<ul>
+			<li>Finish the course by making your project</li>
+		</ul>
+	</div></section>
+	<p class="badge"><a href="https://github.com/vmarkovtsev/mipt_web_2015">View on Github</a></p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="../common/shower/shower.min.js"></script>
+</body>
+</html>
