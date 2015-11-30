@@ -21,15 +21,6 @@
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>TODO</h2>
-		<ul>
-			<li>picture, media set</li>
-			<li>@media</li>
-			<li>GIF</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
 		<h2>Image merging</h2>
 		Advantages: single HTTP request, smaller size (in some cases)
 		<ul>
@@ -60,17 +51,6 @@
 			<li><code>npm install optipng pngquant</code></li>
 			<li>Expected impact: 20-70%</li>
 		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Adobe Flash (.swf)</h2>
-		<img src="pictures/flash.jpg" id="flash">
-		<style>
-		#flash {
-			width: 800px;
-			margin-top: 30px;
-		}
-		</style>
 	</div></section>
 
 	<section class="slide"><div>
@@ -115,8 +95,20 @@
 	</div></section>
 
 	<section class="slide"><div>
+		<h2>Adobe Flash (.swf)</h2>
+		<img src="pictures/flash.jpg" id="flash">
+		<style>
+		#flash {
+			width: 800px;
+			margin-top: 30px;
+		}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
 		<h2>Animated PNG</h2>
 		<ul>
+			<li>Modern alternative to <a href="https://en.wikipedia.org/wiki/GIF">GIF</a></li>
 			<li>PNG format <a href="https://en.wikipedia.org/wiki/APNG">extension</a>
 				to allow GIF-like animation</li>
 			<li>Fallback to first frame on not supporting engines</li>
@@ -135,6 +127,69 @@
 			<li>Supported only by Chromium-derived browsers</li>
 			<li>So the plan is to use APNG/webp for complex animations through
 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset">srcset</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>&lt;picture&gt;</h2>
+		<img src="http://responsiveimages.org/img/devices.gif" id="picture">
+		<ul>
+			<li>Screens of different size and
+				<a href="https://en.wikipedia.org/wiki/Dots_per_inch">DPI</a> get the same img</li>
+			<li>The idea behind &lt;picture&gt; is to make web images
+				<a href="http://responsiveimages.org/">responsive</a>
+				(<a href="http://habrahabr.ru/post/237991/">Russian</a>)</li>
+		</ul>
+    <pre><code>&lt;picture&gt;</code>
+<code>  &lt;source media="(min-width: 40em)"</code>
+<code>    srcset="big.jpg 1x, big-hd.jpg 2x"&gt;</code>
+<code>  &lt;source</code>
+<code>    srcset="small.jpg 1x, small-hd.jpg 2x"&gt;</code>
+<code>  &lt;img src="fallback.jpg" alt=""&gt;</code>
+<code>&lt;/picture&gt;</code></pre>
+  <style>
+  #picture {
+		float: right;
+		width: 300px;
+	}
+	#picture ~ ul {
+		margin-bottom: 10px;
+	}
+	#picture ~ pre {
+		font-size: 80%;
+	}
+	</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>@media</h2>
+		<ul>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a>
+				CSS query allows different rules for different media types:
+				screen, printer, speech</li>
+			<li><a href="https://drafts.csswg.org/mediaqueries/#media-types">The complete list</a>
+				used to be bigger, but now the standard suggests using
+				<a href="https://drafts.csswg.org/mediaqueries/#media-feature">media features</a>
+				for finer control</li>
+		</ul>
+		<pre>
+			<code>&lt;link media="screen and (device-aspect-ratio: 16/9) and
+  (width>600px) and (pointer) and (scripting)"
+  rel="stylesheet" href="example.css"&gt;</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Printer-friendly HTML</h2>
+		<ul>
+			<li>@media print</li>
+			<li><code>.no-print	{ display: none; }</code></li>
+			<li><code>.no-page-break	{ <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-inside">page-break-inside</a>: avoid; }</code></li>
+			<li><code>.page-break	{ <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-before">page-break-before</a>: always; }</code></li>
+			<li><code>body {<br>
+				&nbsp;&nbsp;-webkit-filter: grayscale(1);<br>
+				&nbsp;&nbsp;filter: grayscale(1);<br>
+			}</code></li>
 		</ul>
 	</div></section>
 
